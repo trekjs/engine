@@ -1,0 +1,89 @@
+{
+  "name": "trek-engine",
+  "version": "0.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "bench": "cd benchmarks; make all",
+    "lint": "xo",
+    "test": "xo && nyc --reporter=lcov ava -r babel-register",
+    "test:watch": "xo && nyc --reporter=lcov ava -r babel-register --watch"
+  },
+  "repository": "trekjs/engine",
+  "author": "Fangdun Cai <cfddream@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">= 6"
+  },
+  "files": [
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md",
+    "lib"
+  ],
+  "dependencies": {
+    "accepts": "1.3.3",
+    "content-disposition": "0.5.1",
+    "content-type": "1.0.2",
+    "fresh": "0.3.0",
+    "mime-types": "2.1.11",
+    "on-finished": "2.3.0",
+    "parseurl": "1.3.1",
+    "range-parser": "1.2.0",
+    "trek-middleware": "1.0.0",
+    "type-is": "1.6.13",
+    "vary": "1.1.0"
+  },
+  "devDependencies": {
+    "ava": "0.16.0",
+    "babel-register": "6",
+    "babel-plugin-transform-async-to-generator": "6",
+    "babel-plugin-transform-es2015-modules-commonjs": "6",
+    "babel-preset-es2015": "6",
+    "nyc": "8.1.0",
+    "xo": "0.16.0"
+  },
+  "babel": {
+    "plugins": [
+      "transform-async-to-generator",
+      "transform-es2015-modules-commonjs"
+    ],
+    "presets": [
+      "es2015"
+    ]
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node",
+      "es6"
+    ],
+    "semicolon": false,
+    "space": true,
+    "rules": {
+      "babel/arrow-parens": [
+        2,
+        "as-needed"
+      ],
+      "babel/object-curly-spacing": 0,
+      "curly": 0,
+      "import/no-named-as-default": 0,
+      "max-lines": 0,
+      "no-warning-comments": [
+        "error",
+        {
+          "terms": [
+            "todo",
+            "fixme"
+          ],
+          "location": "anywhere"
+        }
+      ],
+      "space-before-function-paren": [
+        2,
+        "always"
+      ],
+      "yoda": 0
+    }
+  }
+}
