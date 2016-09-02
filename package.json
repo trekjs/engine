@@ -1,7 +1,17 @@
 {
   "name": "trek-engine",
   "version": "0.0.0",
-  "description": "",
+  "description": "Elegant, Fast, Lightweight, Expressive middleware for Modern Node.js ",
+  "keywords": [
+    "trek",
+    "web",
+    "app",
+    "http",
+    "application",
+    "framework",
+    "middleware",
+    "modern"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "bench": "cd benchmarks; make all",
