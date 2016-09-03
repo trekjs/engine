@@ -18,22 +18,22 @@ $ make battle
 
 ```
   5 middleware
-------- express hello -------
+------- express -------
 Hello World
   6114.56
 
   5 middleware
-------- koa hello -------
+------- koa -------
 Hello World
   6613.55
 
   5 middleware
-------- toa hello -------
+------- toa -------
 Hello World
   5142.69
 
   5 middleware
-------- trek hello -------
+------- trek -------
 Hello World
   7393.59
 ```
@@ -42,22 +42,22 @@ Hello World
 
 ```
   15 middleware
-------- express hello -------
+------- express -------
 Hello World
   5681.79
 
   15 middleware
-------- koa hello -------
+------- koa -------
 Hello World
   6822.63
 
   15 middleware
-------- toa hello -------
+------- toa -------
 Hello World
   5336.33
 
   15 middleware
-------- trek hello -------
+------- trek -------
 Hello World
   8198.41
 ```
@@ -66,22 +66,22 @@ Hello World
 
 ```
   30 middleware
-------- express hello -------
+------- express -------
 Hello World
   5168.10
 
   30 middleware
-------- koa hello -------
+------- koa -------
 Hello World
   6205.17
 
   30 middleware
-------- toa hello -------
+------- toa -------
 Hello World
   4727.22
 
   30 middleware
-------- trek hello -------
+------- trek -------
 Hello World
   7982.35
 ```
@@ -90,22 +90,22 @@ Hello World
 
 ```
   50 middleware
-------- express hello -------
+------- express -------
 Hello World
   5393.90
 
   50 middleware
-------- koa hello -------
+------- koa -------
 Hello World
   5974.12
 
   50 middleware
-------- toa hello -------
+------- toa -------
 Hello World
   4261.97
 
   50 middleware
-------- trek hello -------
+------- trek -------
 Hello World
   6634.71
 ```

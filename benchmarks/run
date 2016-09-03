@@ -17,7 +17,7 @@ fi
 uri='http://127.0.0.1:700'${port}'?foo[bar]=baz'
 
 sleep 2
-echo "------- $2 hello -------"
+echo "------- $2 -------"
 curl -g $uri
 echo ""
 wrk $uri \
