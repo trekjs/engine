@@ -21,12 +21,13 @@ test('should return the full request url', t => {
   t.is(req.href, 'http://localhost/users/1?next=/dashboard')
 })
 
-test('should work with `GET http://example.com/foo`', t => {
+test.cb('should work with `GET http://example.com/foo`', t => {
   const app = new Trek()
 
   app.use(({ req, res }) => {
     res.end(req.href)
   })
+
   app.run(function () {
     const address = this.address()
     http.get({
@@ -43,6 +44,7 @@ test('should work with `GET http://example.com/foo`', t => {
       })
       res.on('end', () => {
         t.is(buf, 'http://example.com/foo')
+        t.end()
       })
     })
   })

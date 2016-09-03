@@ -1,48 +1,18 @@
-import fs from 'fs'
 import test from 'ava'
 import request from 'request-promise'
 import Engine from '../../lib/engine'
-
-const listen = app => {
-  return new Promise((resolve, reject) => {
-    app.run(function (err) {
-      if (err) {
-        return reject(err)
-      }
-
-      const { port } = this.address()
-      resolve(`http://localhost:${port}`)
-    })
-  })
-}
+import { createError } from '../../lib/util'
+import { listen } from '../helpers/context'
 
 test.beforeEach(t => {
   t.context = new Engine()
 })
 
-test('on-finished should response and throws', async t => {
-  const app = t.context
-
-  app.use(({ res }) => {
-    res.send(fs.createReadStream('does not exist'))
-  })
-
-  app.on('error', err => {
-    t.true(err !== null)
-  })
-
-  const url = await listen(app)
-  t.throws(request(url), '500 - "Internal Server Error"')
-})
-
-test('handle catch should response and throws', async t => {
+test('handle catch should response and throws 500', async t => {
   const app = t.context
 
   app.use(() => {
-    const err = new Error()
-    err.code = 404
-    err.message = 'Not found'
-    throw err
+    throw createError()
   })
 
   app.on('error', err => {
@@ -50,5 +20,28 @@ test('handle catch should response and throws', async t => {
   })
 
   const url = await listen(app)
-  t.throws(request(url), '404 - "Not found"')
+  try {
+    await request(url)
+  } catch (err) {
+    t.true(err.statusCode === 500)
+  }
+})
+
+test('handle catch should response and throws 404', async t => {
+  const app = t.context
+
+  app.use(() => {
+    throw createError(404, 'Not found')
+  })
+
+  app.on('error', err => {
+    t.true(err !== null)
+  })
+
+  const url = await listen(app)
+  try {
+    await request(url)
+  } catch (err) {
+    t.true(err.statusCode === 404)
+  }
 })
