@@ -4,12 +4,8 @@ import request from 'request-promise'
 import Engine from '../../lib/engine'
 import { listen } from '../helpers/context'
 
-test.beforeEach(t => {
-  t.context = new Engine()
-})
-
 test('when body is null', async t => {
-  const app = t.context
+  const app = new Engine()
 
   app.use(({ res }) => {
     res.send(200, null)
@@ -25,7 +21,7 @@ test('when body is null', async t => {
 })
 
 test('when body is buffer', async t => {
-  const app = t.context
+  const app = new Engine()
 
   app.use(({ res }) => {
     res.send(200, new Buffer('trek'))
@@ -41,7 +37,7 @@ test('when body is buffer', async t => {
 })
 
 test('when body is stream', async t => {
-  const app = t.context
+  const app = new Engine()
   const file = '../../package.json'
 
   app.use(({ res }) => {
