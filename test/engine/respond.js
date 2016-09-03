@@ -53,3 +53,20 @@ test('when body is stream', async t => {
   const res = await request(url, { json: true })
   t.deepEqual(res, require(file))
 })
+
+test('when body is object', async t => {
+  const app = new Engine()
+  const body = { name: 'trek engine' }
+
+  app.use(({ res }) => {
+    res.send(200, body)
+  })
+
+  app.on('error', err => {
+    t.true(err === null)
+  })
+
+  const url = await listen(app)
+  const res = await request(url, { json: true })
+  t.deepEqual(res, body)
+})

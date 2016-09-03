@@ -1,13 +1,25 @@
 #!/usr/bin/env bash
 
 echo
-MW=$1 node --harmony $2 &
+MW=$1 node $2 &
 pid=$!
 
-sleep 2
+if [ "$2" == "trek" ]; then
+  port="1"
+elif [ "$2" == "koa" ]; then
+  port="2"
+elif [ "$2" == "toa" ]; then
+  port="3"
+fi
 
-wrk 'http://localhost:3333/?foo[bar]=baz' \
-  -d 3 \
+uri='http://127.0.0.1:700'${port}'?foo[bar]=baz'
+
+sleep 2
+echo "------- $2 hello -------"
+curl -g $uri
+echo ""
+wrk $uri \
+  -d 10 \
   -c 50 \
   -t 8 \
   | grep 'Requests/sec' \

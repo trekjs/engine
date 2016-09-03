@@ -15,6 +15,6 @@ while (n--) {
 
 const body = new Buffer('Hello World')
 
-app.use(({ res }, next) => next().then(() => res.end(body)))
+app.use(({ res }, next) => next().then(() => res.send(200, body)))
 
-app.run(3333)
+app.run(7001)
