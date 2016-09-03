@@ -4,12 +4,8 @@ import Engine from '../../lib/engine'
 import { createError } from '../../lib/util'
 import { listen } from '../helpers/context'
 
-test.beforeEach(t => {
-  t.context = new Engine()
-})
-
 test('handle catch should response and throws 500', async t => {
-  const app = t.context
+  const app = new Engine()
 
   app.use(() => {
     throw createError()
@@ -28,7 +24,7 @@ test('handle catch should response and throws 500', async t => {
 })
 
 test('handle catch should response and throws 404', async t => {
-  const app = t.context
+  const app = new Engine()
 
   app.use(() => {
     throw createError(404, 'Not found')
