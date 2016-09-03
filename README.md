@@ -35,8 +35,25 @@ $ npm install trek-engine
 ## Hello Trek Engine
 
 ```js
+const co = require('co')
 const Engine = require('trek-engine')
 const app = new Engine()
+
+// middleware
+app.use((ctx, next) => {
+  // return promise
+  return next()
+})
+
+// async/await
+app.use(async (ctx, next) => {
+  await next()
+})
+
+// generation
+app.use(co.wrap(function * (ctx, next) {
+  yield next()
+}))
 
 // response
 app.use({ res } => {
