@@ -50,7 +50,7 @@ app.use(async (ctx, next) => {
   await next()
 })
 
-// generation
+// generator
 app.use(co.wrap(function * (ctx, next) {
   yield next()
 }))
