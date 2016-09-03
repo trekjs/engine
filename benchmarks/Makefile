@@ -74,4 +74,4 @@ toa:
 	@./run 1024 $@
 	@echo
 
-.PHONY: all trek koa toa express vs
+.PHONY: all trek koa toa express battle
