@@ -10,6 +10,8 @@
 
 ## Frameworks' Battle! :fire: :collision:
 
+### With [wrk][]
+
 ```
 $ make battle
 ```
@@ -110,6 +112,94 @@ Hello World
   6634.71
 ```
 
+### With [autocannon][]
+
+```
+$ benchmarker=autocannon make battle
+```
+
+**5 middleware**
+
+```
+  5 middleware
+------- express -------
+Hello World
+
+  5 middleware
+------- koa -------
+Hello World
+
+  5 middleware
+------- toa -------
+Hello World
+
+  5 middleware
+------- trek -------
+Hello World
+```
+
+**15 middleware**
+
+```
+  15 middleware
+------- express -------
+Hello World
+
+  15 middleware
+------- koa -------
+Hello World
+
+  15 middleware
+------- toa -------
+Hello World
+
+  15 middleware
+------- trek -------
+Hello World
+```
+
+**30 middleware**
+
+```
+  30 middleware
+------- express -------
+Hello World
+
+  30 middleware
+------- koa -------
+Hello World
+
+  30 middleware
+------- toa -------
+Hello World
+
+  30 middleware
+------- trek -------
+Hello World
+```
+
+**50 middleware**
+
+```
+  50 middleware
+------- express -------
+Hello World
+
+  50 middleware
+------- koa -------
+Hello World
+
+  50 middleware
+------- toa -------
+Hello World
+
+  50 middleware
+------- trek -------
+Hello World
+```
+
+[wrk]: https://github.com/wg/wrk
+[autocannon]: https://github.com/mcollina/autocannon
 [Express]: https://github.com/expressjs/express
 [Koa]: https://github.com/koajs/koa/tree/v2.x
 [Toa]: https://github.com/toajs/toa
