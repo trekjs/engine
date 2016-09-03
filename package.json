@@ -16,8 +16,8 @@
   "scripts": {
     "bench": "cd benchmarks; make all",
     "lint": "xo",
-    "test": "NODE_ENV=test xo && nyc --reporter=lcov ava -r babel-register",
-    "test:watch": "xo && nyc --reporter=lcov ava -r babel-register --watch"
+    "test": "xo && NODE_ENV=test nyc --reporter=lcov ava -r babel-register",
+    "test:watch": "xo && NODE_ENV=test nyc --reporter=lcov ava -r babel-register --watch"
   },
   "repository": "trekjs/engine",
   "author": "Fangdun Cai <cfddream@gmail.com>",

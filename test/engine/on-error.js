@@ -1,3 +1,4 @@
+import fs from 'fs'
 import test from 'ava'
 import request from 'request-promise'
 import Engine from '../../lib/engine'
@@ -19,7 +20,22 @@ test.beforeEach(t => {
   t.context = new Engine()
 })
 
-test('should response and throws', async t => {
+test('on-finished should response and throws', async t => {
+  const app = t.context
+
+  app.use(({ res }) => {
+    res.send(fs.createReadStream('does not exist'))
+  })
+
+  app.on('error', err => {
+    t.true(err !== null)
+  })
+
+  const url = await listen(app)
+  t.throws(request(url), '500 - "Internal Server Error"')
+})
+
+test('handle catch should response and throws', async t => {
   const app = t.context
 
   app.use(() => {
