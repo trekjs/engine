@@ -14,7 +14,7 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "bench": "cd benchmarks; make all",
+    "bench": "cd benchmarks; make battle",
     "lint": "xo",
     "test": "xo && nyc --reporter=lcov ava --no-cache -r babel-register -c 5",
     "test:watch": "xo && nyc --reporter=lcov ava -r babel-register --watch"
@@ -50,6 +50,7 @@
     "babel-plugin-transform-es2015-modules-commonjs": "6",
     "babel-preset-es2015": "6",
     "babel-register": "6",
+    "express": "4.14.0",
     "koa": "2.0.0-alpha.6",
     "nyc": "8.1.0",
     "request": "2.74.0",
@@ -74,7 +75,9 @@
     ],
     "semicolon": false,
     "space": true,
-    "ignores": ["benchmarks/*.js"],
+    "ignores": [
+      "benchmarks/*.js"
+    ],
     "rules": {
       "babel/arrow-parens": [
         2,

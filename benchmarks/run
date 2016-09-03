@@ -10,6 +10,8 @@ elif [ "$2" == "koa" ]; then
   port="2"
 elif [ "$2" == "toa" ]; then
   port="3"
+elif [ "$2" == "express" ]; then
+  port="4"
 fi
 
 uri='http://127.0.0.1:700'${port}'?foo[bar]=baz'
