@@ -9,8 +9,10 @@ cache:
 before_script:
   - "[ ! -f wrk/bin/wrk ] && rm -rf wrk && git clone https://github.com/wg/wrk.git && make -C wrk && mkdir wrk/bin && mv wrk/wrk wrk/bin || true"
   - export PATH=$PATH:$PWD/wrk/bin/
+  - npm i autocannon -g
 script:
   - npm run bench
+  - benchmarker=autocannon npm run bench
   - npm test
 after_script:
   - npm install codecov
