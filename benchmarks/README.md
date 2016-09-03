@@ -1,42 +1,115 @@
-# benchmarks
+# Benchmarks
 
-Benchmark:
+| Framework | Version |  
+| --- | --- |  
+| [Express][] | 4.14.0 |  
+| [Koa][] | 2.0.0-alpha.6 |  
+| [Toa][] | 1.8.11 |  
+| [Trek Engine](..) | [-](../package.json) |  
+
+
+## Frameworks' Battle! :fire: :collision:
 
 ```
-$ make all
+$ make battle
 ```
 
-Result:
+**5 middleware**
 
 ```
-
-  1 middleware
-  8325.67
+  5 middleware
+------- express hello -------
+Hello World
+  6114.56
 
   5 middleware
-  8166.53
+------- koa hello -------
+Hello World
+  6613.55
 
-  10 middleware
-  8222.20
+  5 middleware
+------- toa hello -------
+Hello World
+  5142.69
+
+  5 middleware
+------- trek hello -------
+Hello World
+  7393.59
+```
+
+**15 middleware**
+
+```
+  15 middleware
+------- express hello -------
+Hello World
+  5681.79
 
   15 middleware
-  7798.65
+------- koa hello -------
+Hello World
+  6822.63
 
-  20 middleware
-  7820.08
+  15 middleware
+------- toa hello -------
+Hello World
+  5336.33
+
+  15 middleware
+------- trek hello -------
+Hello World
+  8198.41
+```
+
+**30 middleware**
+
+```
+  30 middleware
+------- express hello -------
+Hello World
+  5168.10
 
   30 middleware
-  7614.41
+------- koa hello -------
+Hello World
+  6205.17
+
+  30 middleware
+------- toa hello -------
+Hello World
+  4727.22
+
+  30 middleware
+------- trek hello -------
+Hello World
+  7982.35
+```
+
+**50 middleware**
+
+```
+  50 middleware
+------- express hello -------
+Hello World
+  5393.90
 
   50 middleware
-  7479.94
+------- koa hello -------
+Hello World
+  5974.12
 
-  100 middleware
-  7001.87
+  50 middleware
+------- toa hello -------
+Hello World
+  4261.97
 
-  500 middleware
-  4908.99
-
-  1024 middleware
-  3619.94
+  50 middleware
+------- trek hello -------
+Hello World
+  6634.71
 ```
+
+[Express]: https://github.com/expressjs/express
+[Koa]: https://github.com/koajs/koa/tree/v2.x
+[Toa]: https://github.com/toajs/toa
