@@ -24,7 +24,7 @@ if [ "$benchmarker" == "autocannon" ]; then
   autocannon $uri \
     -d 10 \
     -c 50 \
-    -n
+    --progress=0
 else
   wrk $uri \
     -d 10 \
