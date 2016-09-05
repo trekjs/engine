@@ -17,4 +17,4 @@ const body = new Buffer('Hello World')
 
 app.use(({ res }, next) => next().then(() => res.send(200, body)))
 
-app.run(7001)
+app.run(7004)

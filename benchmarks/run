@@ -4,13 +4,13 @@ echo
 MW=$1 node $2 &
 pid=$!
 
-if [ "$2" == "trek" ]; then
+if [ "$2" == "express" ]; then
   port="1"
 elif [ "$2" == "koa" ]; then
   port="2"
 elif [ "$2" == "toa" ]; then
   port="3"
-elif [ "$2" == "express" ]; then
+elif [ "$2" == "trek" ]; then
   port="4"
 fi
 
