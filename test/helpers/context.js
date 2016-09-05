@@ -13,7 +13,7 @@ const createContext = (req, res, app = new Trek()) => {
   }
   res.removeHeader = k => delete res._headers[k.toLowerCase()]
 
-  return new Context(app, app.config, req, res)
+  return new Context(app, req, res)
 }
 
 export default createContext
