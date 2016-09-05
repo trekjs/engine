@@ -13,6 +13,8 @@ before_script:
 script:
   - npm run bench
   - benchmarker=autocannon npm run bench
+  - OVERRIDE_PROMISE=1 npm run bench
+  - OVERRIDE_PROMISE=1 benchmarker=autocannon npm run bench
   - npm test
 after_script:
   - npm install codecov

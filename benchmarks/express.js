@@ -1,5 +1,10 @@
 'use strict'
 
+// https://github.com/koajs/koa/pull/751
+if (process.env.OVERRIDE_PROMISE) {
+  global.Promise = require('bluebird')
+}
+
 const http = require('http')
 const express = require('express')
 
