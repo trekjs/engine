@@ -16,6 +16,7 @@ test('when unraw is true and req and res should instanceof Request and Response'
   app.use(async ({ req, res }, next) => {
     t.true(req instanceof Request)
     t.true(res instanceof Response)
+    await next()
   })
 
   await listen(app)
@@ -28,6 +29,7 @@ test('when unraw is false and req and res should be raw req and raw res', async 
   app.use(async ({ req, res }, next) => {
     t.true(req instanceof IncomingMessage)
     t.true(res instanceof OutcomingMessage)
+    await next()
   })
 
   await listen(app)
