@@ -10,7 +10,22 @@
 
 ## Frameworks' Battle! :fire: :collision:
 
+Target Machine:
+
+```
+MacBook Pro (Retina, 13-inch, Late 2012)
+Processor 2.5 GHz Intel Core i5
+Memory 8 GB 1600 MHz DDR3
+Graphics Intel HD Graphics 4000 1536 MB
+
+Node v6.5.0
+wrk v4.0.2
+autocannon v0.14.1
+```
+
 ### With [wrk][]
+
+<img width="640" alt="With wrk" src="https://cloud.githubusercontent.com/assets/27926/18242600/a6810b88-7389-11e6-8c55-7eb88eedc023.png">
 
 ```
 $ make battle
@@ -25,11 +40,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7001?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.83ms    3.54ms  88.49ms   95.70%
-    Req/Sec   697.36    112.74   848.00     82.62%
-  55635 requests in 10.03s, 11.14MB read
-Requests/sec:   5548.53
-Transfer/sec:      1.11MB
+    Latency     8.28ms    3.81ms  91.11ms   96.16%
+    Req/Sec   749.46    119.07     1.11k    89.62%
+  59767 requests in 10.03s, 11.97MB read
+Requests/sec:   5960.58
+Transfer/sec:      1.19MB
 
   5 middleware
 ------- koa -------
@@ -37,11 +52,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7002?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.24ms    2.45ms  63.07ms   92.35%
-    Req/Sec   738.91    112.82   848.00     84.62%
-  58933 requests in 10.02s, 8.49MB read
-Requests/sec:   5880.60
-Transfer/sec:    867.16KB
+    Latency     7.80ms    2.29ms  62.20ms   93.24%
+    Req/Sec   780.51    114.83     0.90k    84.88%
+  62222 requests in 10.02s, 8.96MB read
+Requests/sec:   6210.36
+Transfer/sec:      0.89MB
 
   5 middleware
 ------- toa -------
@@ -49,11 +64,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7003?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     9.22ms    3.42ms  65.72ms   91.60%
-    Req/Sec   662.42    102.72     0.85k    68.62%
-  53040 requests in 10.07s, 8.65MB read
-Requests/sec:   5267.35
-Transfer/sec:      0.86MB
+    Latency     8.89ms    3.98ms  70.65ms   91.10%
+    Req/Sec   693.20    124.12     1.04k    69.88%
+  55457 requests in 10.06s, 9.04MB read
+Requests/sec:   5511.25
+Transfer/sec:      0.90MB
 
   5 middleware
 ------- trek -------
@@ -61,11 +76,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7004?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     6.93ms    1.76ms  41.77ms   91.85%
-    Req/Sec     0.88k   131.05     1.03k    82.38%
-  69800 requests in 10.02s, 7.39MB read
-Requests/sec:   6966.96
-Transfer/sec:    755.21KB
+    Latency     6.50ms    1.87ms  50.89ms   94.48%
+    Req/Sec     0.94k   126.29     1.03k    90.12%
+  74692 requests in 10.01s, 7.91MB read
+Requests/sec:   7461.16
+Transfer/sec:    808.78KB
 ```
 
 **15 middleware**
@@ -77,11 +92,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7001?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.63ms    2.29ms  57.53ms   92.87%
-    Req/Sec   704.48     96.57   797.00     88.00%
-  56252 requests in 10.04s, 11.27MB read
-Requests/sec:   5603.93
-Transfer/sec:      1.12MB
+    Latency     8.44ms    2.11ms  59.18ms   92.27%
+    Req/Sec   719.31     99.85   830.00     85.88%
+  57357 requests in 10.02s, 11.49MB read
+Requests/sec:   5725.24
+Transfer/sec:      1.15MB
 
   15 middleware
 ------- koa -------
@@ -89,11 +104,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7002?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.73ms    3.72ms  64.25ms   95.81%
-    Req/Sec   711.35    128.36     0.88k    85.88%
-  56751 requests in 10.03s, 8.17MB read
-Requests/sec:   5659.06
-Transfer/sec:    834.49KB
+    Latency     7.86ms    2.54ms  66.14ms   94.30%
+    Req/Sec   778.10    107.56     0.89k    85.62%
+  62054 requests in 10.02s, 8.94MB read
+Requests/sec:   6191.55
+Transfer/sec:      0.89MB
 
   15 middleware
 ------- toa -------
@@ -101,11 +116,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7003?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     9.98ms    3.44ms  42.20ms   86.39%
-    Req/Sec   609.78    108.96     0.91k    71.38%
-  48816 requests in 10.06s, 7.96MB read
-Requests/sec:   4850.14
-Transfer/sec:    809.94KB
+    Latency     9.49ms    3.20ms  54.46ms   88.02%
+    Req/Sec   639.42     94.53     0.98k    80.62%
+  51179 requests in 10.06s, 8.35MB read
+Requests/sec:   5087.62
+Transfer/sec:    849.59KB
 
   15 middleware
 ------- trek -------
@@ -113,11 +128,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7004?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.11ms    1.67ms  47.88ms   92.06%
-    Req/Sec     0.85k   111.62     1.02k    76.50%
-  68011 requests in 10.02s, 7.20MB read
-Requests/sec:   6785.73
-Transfer/sec:    735.56KB
+    Latency     6.63ms    2.03ms  54.42ms   93.48%
+    Req/Sec     0.92k   136.13     1.03k    86.62%
+  73446 requests in 10.02s, 7.77MB read
+Requests/sec:   7330.96
+Transfer/sec:    794.67KB
 ```
 
 **30 middleware**
@@ -129,11 +144,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7001?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     9.37ms    2.72ms  54.22ms   91.02%
-    Req/Sec   649.83    111.33     0.96k    86.75%
-  51825 requests in 10.03s, 10.38MB read
-Requests/sec:   5166.12
-Transfer/sec:      1.03MB
+    Latency     8.55ms    2.48ms  72.66ms   96.28%
+    Req/Sec   712.96     90.84   810.00     91.62%
+  56865 requests in 10.02s, 11.39MB read
+Requests/sec:   5675.68
+Transfer/sec:      1.14MB
 
   30 middleware
 ------- koa -------
@@ -141,11 +156,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7002?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.80ms    2.80ms  57.63ms   92.97%
-    Req/Sec   694.24    118.94     0.87k    86.25%
-  55370 requests in 10.03s, 7.97MB read
-Requests/sec:   5523.06
-Transfer/sec:    814.44KB
+    Latency     7.97ms    2.38ms  62.09ms   93.85%
+    Req/Sec   765.95    108.18   848.00     88.25%
+  61075 requests in 10.02s, 8.80MB read
+Requests/sec:   6094.90
+Transfer/sec:      0.88MB
 
   30 middleware
 ------- toa -------
@@ -153,11 +168,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7003?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    10.92ms    4.37ms  84.70ms   91.35%
-    Req/Sec   562.17     99.15   720.00     86.38%
-  45049 requests in 10.07s, 7.35MB read
-Requests/sec:   4471.89
-Transfer/sec:    746.77KB
+    Latency    10.50ms    3.29ms  54.30ms   84.59%
+    Req/Sec   577.90     86.31     0.91k    81.75%
+  46270 requests in 10.07s, 7.55MB read
+Requests/sec:   4596.74
+Transfer/sec:    767.62KB
 
   30 middleware
 ------- trek -------
@@ -165,11 +180,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7004?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.15ms    1.74ms  48.86ms   92.68%
-    Req/Sec   848.55    114.26     0.97k    79.12%
-  67672 requests in 10.02s, 7.16MB read
-Requests/sec:   6753.60
-Transfer/sec:    732.08KB
+    Latency     6.77ms    1.45ms  42.57ms   92.51%
+    Req/Sec     0.90k   103.14     1.01k    87.38%
+  71346 requests in 10.01s, 7.55MB read
+Requests/sec:   7126.01
+Transfer/sec:    772.45KB
 ```
 
 **50 middleware**
@@ -181,23 +196,23 @@ Hello World
 Running 10s test @ http://127.0.0.1:7001?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    10.63ms    2.98ms  60.10ms   90.50%
-    Req/Sec   570.60     96.46   676.00     85.38%
-  45553 requests in 10.03s, 9.12MB read
-Requests/sec:   4541.39
-Transfer/sec:      0.91MB
+    Latency     9.55ms    3.11ms  80.41ms   93.83%
+    Req/Sec   639.79     95.53   727.00     89.62%
+  51030 requests in 10.02s, 10.22MB read
+Requests/sec:   5092.74
+Transfer/sec:      1.02MB
 
-  50 middleware
+ 50 middleware
 ------- koa -------
 Hello World
 Running 10s test @ http://127.0.0.1:7002?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     8.73ms    2.04ms  41.39ms   90.78%
-    Req/Sec   693.73    100.59   848.00     85.00%
-  55353 requests in 10.03s, 7.97MB read
-Requests/sec:   5518.08
-Transfer/sec:    813.70KB
+    Latency     8.13ms    2.34ms  63.12ms   93.65%
+    Req/Sec   750.06    101.76   848.00     89.00%
+  59778 requests in 10.02s, 8.61MB read
+Requests/sec:   5968.34
+Transfer/sec:      0.86MB
 
   50 middleware
 ------- toa -------
@@ -205,11 +220,11 @@ Hello World
 Running 10s test @ http://127.0.0.1:7003?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency    12.35ms    4.93ms  88.17ms   91.25%
-    Req/Sec   497.59     96.75   666.00     75.38%
-  39868 requests in 10.07s, 6.50MB read
-Requests/sec:   3957.51
-Transfer/sec:    660.87KB
+    Latency    11.56ms    3.43ms  64.45ms   88.17%
+    Req/Sec   524.29     79.84   606.00     83.50%
+  42037 requests in 10.08s, 6.86MB read
+Requests/sec:   4171.66
+Transfer/sec:    696.63KB
 
   50 middleware
 ------- trek -------
@@ -217,14 +232,17 @@ Hello World
 Running 10s test @ http://127.0.0.1:7004?foo[bar]=baz
   8 threads and 50 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     7.29ms    1.59ms  48.51ms   91.46%
-    Req/Sec   830.77    102.65     0.98k    81.75%
-  66242 requests in 10.02s, 7.01MB read
-Requests/sec:   6609.27
-Transfer/sec:    716.43KB
+    Latency     6.90ms    2.05ms  61.90ms   95.75%
+    Req/Sec     0.88k   107.64     0.97k    90.62%
+  70405 requests in 10.02s, 7.45MB read
+Requests/sec:   7029.15
+Transfer/sec:    761.95KB
+
 ```
 
 ### With [autocannon][]
+
+<img width="640" alt="With autocannon" src="https://cloud.githubusercontent.com/assets/27926/18242605/acc0419e-7389-11e6-92df-e083598fb8c7.png">
 
 ```
 $ benchmarker=autocannon make battle
@@ -236,38 +254,38 @@ $ benchmarker=autocannon make battle
   5 middleware
 ------- express -------
 Hello World
-Stat         Avg     Stdev     Max
-Latency (ms) 8.78    2.97      66
-Req/Sec      5472    1011.44   6175
-Bytes/Sec    1.15 MB 210.94 kB 1.31 MB
-55k requests in 10s, 11.49 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 10.56     2.41     61
+Req/Sec      4578.37   457.12   4919
+Bytes/Sec    963.68 kB 101.2 kB 1.05 MB
+50k requests in 11s, 10.58 MB read
 
   5 middleware
 ------- koa -------
 Hello World
 Stat         Avg       Stdev    Max
-Latency (ms) 12.2      2.12     64
-Req/Sec      3942.46   268.02   4093
-Bytes/Sec    593.55 kB 40.04 kB 622.59 kB
-43k requests in 11s, 6.55 MB read
+Latency (ms) 8.81      2.03     46
+Req/Sec      5312.4    467.35   5703
+Bytes/Sec    796.26 kB 72.98 kB 884.74 kB
+53k requests in 10s, 8.02 MB read
 
   5 middleware
 ------- toa -------
 Hello World
-Stat         Avg       Stdev     Max
-Latency (ms) 9.75      5.45      50
-Req/Sec      4874      1387.93   6251
-Bytes/Sec    834.76 kB 239.13 kB 1.11 MB
-49k requests in 10s, 8.33 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 9.12      4.4      50
+Req/Sec      5211.2    463.1    5647
+Bytes/Sec    888.01 kB 75.01 kB 983.04 kB
+52k requests in 10s, 8.91 MB read
 
   5 middleware
 ------- trek -------
 Hello World
-Stat         Avg       Stdev     Max
-Latency (ms) 5.83      2.35      51
-Req/Sec      7864.8    1552.11   9015
-Bytes/Sec    877.36 kB 178.37 kB 1.02 MB
-79k requests in 10s, 8.73 MB read
+Stat         Avg       Stdev   Max
+Latency (ms) 7.42      1.63    48
+Req/Sec      6372.55   618.39  6779
+Bytes/Sec    701.53 kB 69.1 kB 753.66 kB
+70k requests in 11s, 7.78 MB read
 ```
 
 **15 middleware**
@@ -276,38 +294,38 @@ Bytes/Sec    877.36 kB 178.37 kB 1.02 MB
   15 middleware
 ------- express -------
 Hello World
-Stat         Avg       Stdev     Max
-Latency (ms) 10.07     3.61      76
-Req/Sec      4703.1    1128.14   5839
-Bytes/Sec    987.51 kB 241.01 kB 1.25 MB
-52k requests in 11s, 10.86 MB read
+Stat         Avg       Stdev   Max
+Latency (ms) 10.81     2.2     60
+Req/Sec      4442.19   400.39  4767
+Bytes/Sec    936.87 kB 83.2 kB 1.02 MB
+49k requests in 11s, 10.26 MB read
 
   15 middleware
 ------- koa -------
 Hello World
-Stat         Avg      Stdev    Max
-Latency (ms) 11.61    2.14     50
-Req/Sec      4131.82  301.94   5071
-Bytes/Sec    621.1 kB 49.13 kB 786.43 kB
-45k requests in 11s, 6.86 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 8.66      1.66     55
+Req/Sec      5420.19   348.65   5735
+Bytes/Sec    820.69 kB 51.08 kB 884.74 kB
+60k requests in 11s, 9 MB read
 
   15 middleware
 ------- toa -------
 Hello World
 Stat         Avg       Stdev    Max
-Latency (ms) 14.64     4.14     62
-Req/Sec      3290.2    362.41   3701
-Bytes/Sec    558.69 kB 63.54 kB 655.36 kB
-33k requests in 10s, 5.63 MB read
+Latency (ms) 9.72      4.64     44
+Req/Sec      4886.11   410.79   5219
+Bytes/Sec    835.58 kB 76.15 kB 917.5 kB
+49k requests in 10s, 8.35 MB read
 
   15 middleware
 ------- trek -------
 Hello World
-Stat         Avg       Stdev     Max
-Latency (ms) 5.79      1.93      40
-Req/Sec      7842.2    1342.18   8911
-Bytes/Sec    874.91 kB 147.13 kB 1.02 MB
-78k requests in 10s, 8.7 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 7.46      1.66     40
+Req/Sec      6275.2    501.97   6671
+Bytes/Sec    694.68 kB 60.51 kB 753.66 kB
+63k requests in 10s, 6.96 MB read
 ```
 
 **30 middleware**
@@ -316,38 +334,38 @@ Bytes/Sec    874.91 kB 147.13 kB 1.02 MB
   30 middleware
 ------- express -------
 Hello World
-Stat         Avg     Stdev     Max
-Latency (ms) 9.18    2.63      53
-Req/Sec      5116.91 650.18    5611
-Bytes/Sec    1.06 MB 136.19 kB 1.18 MB
-56k requests in 11s, 11.82 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 11.23     2.18     59
+Req/Sec      4236.55   361.31   4531
+Bytes/Sec    886.23 kB 80.71 kB 983.04 kB
+47k requests in 11s, 9.79 MB read
 
   30 middleware
 ------- koa -------
 Hello World
-Stat         Avg       Stdev     Max
-Latency (ms) 8.66      3.11      58
-Req/Sec      5473.9    1226.25   6755
-Bytes/Sec    825.75 kB 183.65 kB 1.05 MB
-55k requests in 10s, 8.26 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 8.84      2.12     58
+Req/Sec      5300.28   473.35   5643
+Bytes/Sec    799.84 kB 71.87 kB 851.97 kB
+58k requests in 11s, 8.8 MB read
 
   30 middleware
 ------- toa -------
 Hello World
-Stat         Avg       Stdev     Max
-Latency (ms) 10.95     4.93      51
-Req/Sec      4366.61   799.62    5375
-Bytes/Sec    747.11 kB 137.51 kB 950.27 kB
-44k requests in 10s, 7.47 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 10.9      4.68     49
+Req/Sec      4395      368.27   4719
+Bytes/Sec    753.66 kB 59.07 kB 819.2 kB
+44k requests in 10s, 7.51 MB read
 
   30 middleware
 ------- trek -------
 Hello World
 Stat         Avg       Stdev    Max
-Latency (ms) 5.64      1.32     33
-Req/Sec      7971.4    619.47   8415
-Bytes/Sec    884.74 kB 67.55 kB 950.27 kB
-80k requests in 10s, 8.85 MB read
+Latency (ms) 7.73      1.75     45
+Req/Sec      6047.1    513.41   6519
+Bytes/Sec    668.77 kB 54.93 kB 753.66 kB
+67k requests in 11s, 7.38 MB read
 ```
 
 **50 middleware**
@@ -356,38 +374,38 @@ Bytes/Sec    884.74 kB 67.55 kB 950.27 kB
   50 middleware
 ------- express -------
 Hello World
-Stat         Avg     Stdev   Max
-Latency (ms) 9.47    1.59    60
-Req/Sec      4986.1  370.58  5219
-Bytes/Sec    1.05 MB 79.9 kB 1.11 MB
-55k requests in 11s, 11.52 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 12.52     2.82     70
+Req/Sec      3827.9    379.17   4203
+Bytes/Sec    796.26 kB 81.33 kB 884.74 kB
+38k requests in 10s, 8.04 MB read
 
   50 middleware
 ------- koa -------
 Hello World
 Stat         Avg       Stdev    Max
-Latency (ms) 7.52      1.5      48
-Req/Sec      6091.46   380.68   6295
-Bytes/Sec    913.04 kB 56.36 kB 950.27 kB
-67k requests in 11s, 10.12 MB read
+Latency (ms) 9.67      2.36     54
+Req/Sec      4938.5    485.14   5431
+Bytes/Sec    743.83 kB 71.49 kB 851.97 kB
+49k requests in 10s, 7.46 MB read
 
   50 middleware
 ------- toa -------
 Hello World
 Stat         Avg       Stdev    Max
-Latency (ms) 10.69     4.38     44
-Req/Sec      4491.7    292.49   4731
-Bytes/Sec    770.05 kB 46.34 kB 819.2 kB
-45k requests in 10s, 7.68 MB read
+Latency (ms) 12.99     5.66     61
+Req/Sec      3705.8    344.4    4093
+Bytes/Sec    634.88 kB 61.22 kB 720.89 kB
+37k requests in 10s, 6.34 MB read
 
   50 middleware
 ------- trek -------
 Hello World
-Stat         Avg      Stdev    Max
-Latency (ms) 6.14     1.08     31
-Req/Sec      7672.19  517.73   7939
-Bytes/Sec    847.5 kB 56.36 kB 884.74 kB
-84k requests in 11s, 9.37 MB read
+Stat         Avg       Stdev    Max
+Latency (ms) 7.96      2.23     52
+Req/Sec      5868.1    749.57   6359
+Bytes/Sec    649.63 kB 83.22 kB 720.89 kB
+59k requests in 10s, 6.51 MB read
 ```
 
 [wrk]: https://github.com/wg/wrk
