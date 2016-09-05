@@ -17,7 +17,7 @@ test('when missing should return a parsed query-string', t => {
   t.is(req.query.page, '2')
 })
 
-test('req.query= should stringify and replace the querystring and search', t => {
+test('should stringify and replace the querystring and search', t => {
   const req = request({ url: '/store/shoes' })
   req.query = { page: 2, color: 'blue' }
   t.is(req.url, '/store/shoes?page=2&color=blue')
@@ -25,7 +25,7 @@ test('req.query= should stringify and replace the querystring and search', t => 
   t.is(req.search, '?page=2&color=blue')
 })
 
-test('req.query= should change .url but not .originalUrl', t => {
+test('should change .url but not .originalUrl', t => {
   const req = request({ url: '/store/shoes' })
   req.query = { page: 2 }
   t.is(req.url, '/store/shoes?page=2')

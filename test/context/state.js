@@ -3,7 +3,7 @@ import request from 'request-promise'
 import Engine from '../../lib/engine'
 import { listen } from '../helpers/context'
 
-test('ctx.state should provide a ctx.state namespace', async t => {
+test('should provide a ctx.state namespace', async t => {
   const app = new Engine()
 
   app.use(({ state, res }) => {

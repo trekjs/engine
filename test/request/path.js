@@ -6,13 +6,13 @@ test.beforeEach(t => {
   t.context = request()
 })
 
-test('ctx.path should return the pathname', t => {
+test('should return the pathname', t => {
   const req = t.context
   req.url = '/login?next=/dashboard'
   t.is(req.path, '/login')
 })
 
-test('ctx.path= should set the pathname', t => {
+test('should set the pathname', t => {
   const req = t.context
   req.url = '/login?next=/dashboard'
 
@@ -21,7 +21,7 @@ test('ctx.path= should set the pathname', t => {
   t.is(req.url, '/logout?next=/dashboard')
 })
 
-test('ctx.path= should change .url but not .originalUrl', t => {
+test('should change .url but not .originalUrl', t => {
   const req = request({ url: '/login' })
   req.path = '/logout'
   t.is(req.url, '/logout')
@@ -29,7 +29,7 @@ test('ctx.path= should change .url but not .originalUrl', t => {
   t.is(req.req.originalUrl, '/login')
 })
 
-test('ctx.path= should not affect parseurl', t => {
+test('should not affect parseurl', t => {
   const req = request({ url: '/login?foo=bar' })
   req.path = '/login'
   const url = parse(req)

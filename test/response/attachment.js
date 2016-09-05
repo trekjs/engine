@@ -3,27 +3,27 @@ import test from 'ava'
 import Trek from '../../lib/engine'
 import { response } from '../helpers/context'
 
-test('res.attachment([filename]) when given a filename should set the filename param', t => {
+test('when given a filename should set the filename param', t => {
   const res = response()
   res.attachment('path/to/tobi.png')
   const str = 'attachment; filename="tobi.png"'
   t.is(res.header['content-disposition'], str)
 })
 
-test('res.attachment([filename]) when omitting filename should not set filename param', t => {
+test('when omitting filename should not set filename param', t => {
   const res = response()
   res.attachment()
   t.is(res.header['content-disposition'], 'attachment')
 })
 
-test('res.attachment([filename]) when given a no-ascii filename should set the encodeURI filename param', async t => {
+test('when given a no-ascii filename should set the encodeURI filename param', async t => {
   const res = response()
   res.attachment('path/to/include-no-ascii-char-中文名-ok.png')
   const str = 'attachment; filename="include-no-ascii-char-???-ok.png"; filename*=UTF-8\'\'include-no-ascii-char-%E4%B8%AD%E6%96%87%E5%90%8D-ok.png'
   t.is(res.header['content-disposition'], str)
 })
 
-test('res.attachment([filename]) when given a no-ascii filename should work with http client', t => {
+test('when given a no-ascii filename should work with http client', t => {
   const app = new Trek()
 
   app.use(({ res }) => {

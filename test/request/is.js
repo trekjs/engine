@@ -5,7 +5,7 @@ test.beforeEach(t => {
   t.context = request()
 })
 
-test('req.is(type) should ignore params', t => {
+test('should ignore params', t => {
   const req = t.context
   req.header['content-type'] = 'text/html; charset=utf-8'
   req.header['transfer-encoding'] = 'chunked'

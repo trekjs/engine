@@ -6,7 +6,7 @@ test.beforeEach(t => {
   t.context = response()
 })
 
-test('res.socket should return the request socket object', t => {
+test('should return the request socket object', t => {
   const res = t.context
   t.true(res.socket instanceof Stream)
 })

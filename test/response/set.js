@@ -5,25 +5,25 @@ test.beforeEach(t => {
   t.context = response()
 })
 
-test('res.set(name, val) should set a field value', t => {
+test('should set a field value', t => {
   const res = t.context
   res.set('x-foo', 'bar')
   t.is(res.header['x-foo'], 'bar')
 })
 
-test('res.set(name, val) should coerce to a string', t => {
+test('should coerce to a string', t => {
   const res = t.context
   res.set('x-foo', 5)
   t.is(res.header['x-foo'], '5')
 })
 
-test('res.set(name, val) should set a field value of array', t => {
+test('should set a field value of array', t => {
   const res = t.context
   res.set('x-foo', ['foo', 'bar'])
   t.deepEqual(res.header['x-foo'], ['foo', 'bar'])
 })
 
-test('res.set(object) should set multiple fields', t => {
+test('should set multiple fields', t => {
   const res = t.context
 
   res.set({
