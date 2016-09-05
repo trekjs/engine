@@ -242,7 +242,7 @@ Transfer/sec:    761.95KB
 
 ### With [autocannon][]
 
-<img width="640" alt="With autocannon" src="https://cloud.githubusercontent.com/assets/27926/18242605/acc0419e-7389-11e6-92df-e083598fb8c7.png">
+<img width="640" alt="With autocannon" src="https://cloud.githubusercontent.com/assets/27926/18249405/90f9c760-73b0-11e6-9b28-7c75788cdf2b.png">
 
 ```
 $ benchmarker=autocannon make battle
