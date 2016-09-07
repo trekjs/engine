@@ -26,7 +26,7 @@ test('should change .url but not .originalUrl', t => {
   req.path = '/logout'
   t.is(req.url, '/logout')
   t.is(req.originalUrl, '/login')
-  t.is(req.req.originalUrl, '/login')
+  t.is(req.raw.originalUrl, '/login')
 })
 
 test('should not affect parseurl', t => {

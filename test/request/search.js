@@ -22,7 +22,7 @@ test('should change .url but not .originalUrl', t => {
   req.search = '?page=2&color=blue'
   t.is(req.url, '/store/shoes?page=2&color=blue')
   t.is(req.originalUrl, '/store/shoes')
-  t.is(req.req.originalUrl, '/store/shoes')
+  t.is(req.raw.originalUrl, '/store/shoes')
 })
 
 test('when missing should return ""', t => {

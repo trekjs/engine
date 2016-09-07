@@ -4,7 +4,7 @@ import { request } from '../helpers/context'
 test('with no request.req present', t => {
   const req = request()
   req.method = 'GET'
-  delete req.req
+  delete req.raw
   t.true(undefined === req.inspect())
 })
 

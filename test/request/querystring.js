@@ -9,7 +9,7 @@ test('should return the querystring', t => {
 
 test('when req.req not present should return an empty string', t => {
   const req = request()
-  req.req = null
+  req.raw = null
   t.is(req.querystring, '')
 })
 
@@ -34,12 +34,12 @@ test('should change .url but not .originalUrl', t => {
   req.querystring = 'page=2&color=blue'
   t.is(req.url, '/store/shoes?page=2&color=blue')
   t.is(req.originalUrl, '/store/shoes')
-  t.is(req.req.originalUrl, '/store/shoes')
+  t.is(req.raw.originalUrl, '/store/shoes')
 })
 
 test('should not affect parseurl', t => {
   const req = request({ url: '/login?foo=bar' })
   req.querystring = 'foo=bar'
-  const url = parseurl(req.req)
+  const url = parseurl(req.raw)
   t.is(url.path, '/login?foo=bar')
 })

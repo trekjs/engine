@@ -30,5 +30,5 @@ test('should change .url but not .originalUrl', t => {
   req.query = { page: 2 }
   t.is(req.url, '/store/shoes?page=2')
   t.is(req.originalUrl, '/store/shoes')
-  t.is(req.req.originalUrl, '/store/shoes')
+  t.is(req.raw.originalUrl, '/store/shoes')
 })
