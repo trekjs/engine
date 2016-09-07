@@ -1,6 +1,13 @@
 # Trek Engine Changelog
 
 
+## v0.3.3 (2016-09-08)
+
+### Features
+
+* [[`f6c8949`](https://github.com/trekjs/engine/commit/f6c8949)] - context: move rawReq and rawRes outside the unraw checking
+
+
 ## v0.3.2 (2016-09-08)
 
 ### Features
