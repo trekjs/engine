@@ -47,14 +47,18 @@ test('when unraw is false should not have rawReq and rawRes', async t => {
   app.unraw = false
 
   app.use(({ req, rawReq }, next) => {
-    t.is(rawReq, undefined)
-    t.true(req instanceof IncomingMessage)
+    t.not(rawReq, undefined)
+    t.true(req === rawReq)
+    t.false(req instanceof Request)
+    t.true(rawReq instanceof IncomingMessage)
     return next()
   })
 
   app.use(({ res, rawRes }, next) => {
-    t.is(rawRes, undefined)
-    t.true(res instanceof ServerResponse)
+    t.not(rawRes, undefined)
+    t.true(res === rawRes)
+    t.false(res instanceof Response)
+    t.true(rawRes instanceof ServerResponse)
     return next()
   })
 
