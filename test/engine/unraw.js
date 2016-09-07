@@ -1,5 +1,6 @@
-import { IncomingMessage, OutcomingMessage } from 'http'
+import { IncomingMessage, ServerResponse } from 'http'
 import test from 'ava'
+import request from 'request-promise'
 import Engine from '../../lib/engine'
 import Request from '../../lib/request'
 import Response from '../../lib/response'
@@ -13,24 +14,34 @@ test('should return true', t => {
 test('when unraw is true and req and res should instanceof Request and Response', async t => {
   const app = new Engine()
 
-  app.use(async ({ req, res }, next) => {
+  app.use(({ req, res }) => {
     t.true(req instanceof Request)
     t.true(res instanceof Response)
-    await next()
+    res.end()
   })
 
-  await listen(app)
+  const url = await listen(app)
+  try {
+    await request(url)
+  } catch (err) {
+    t.true(err.statusCode === 404)
+  }
 })
 
 test('when unraw is false and req and res should be raw req and raw res', async t => {
   const app = new Engine()
   app.unraw = false
 
-  app.use(async ({ req, res }, next) => {
+  app.use(({ req, res }) => {
     t.true(req instanceof IncomingMessage)
-    t.true(res instanceof OutcomingMessage)
-    await next()
+    t.true(res instanceof ServerResponse)
+    res.end()
   })
 
-  await listen(app)
+  const url = await listen(app)
+  try {
+    await request(url)
+  } catch (err) {
+    t.true(err.statusCode === 404)
+  }
 })
