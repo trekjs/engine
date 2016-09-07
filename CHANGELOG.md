@@ -1,5 +1,14 @@
 # Trek Engine Changelog
 
+
+## v0.3.2 (2016-09-08)
+
+### Features
+
+* [[`3e0b7da`](https://github.com/trekjs/engine/commit/3e0b7da)] - response: use res.raw instead of res.res
+* [[`a72d371`](https://github.com/trekjs/engine/commit/a72d371)] - request: use req.raw instead of req.req
+
+
 ## v0.3.1 (2016-09-07)
 
 ### Features
