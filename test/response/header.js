@@ -13,6 +13,6 @@ test('should return the response header object', t => {
 
 test('when res._headers not present should return empty object', t => {
   const res = t.context
-  res.res._headers = null
+  res.raw._headers = null
   t.deepEqual(res.header, {})
 })
