@@ -52,7 +52,7 @@
     "babel-register": "6",
     "bluebird": "3.4.6",
     "express": "4.14.0",
-    "koa": "2.0.0-alpha.6",
+    "koa": "2.0.0-alpha.7",
     "nyc": "8.1.0",
     "request": "2.74.0",
     "request-promise": "4.1.1",
