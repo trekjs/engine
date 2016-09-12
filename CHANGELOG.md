@@ -1,6 +1,13 @@
 # Trek Engine Changelog
 
 
+## v0.4.0 (2016-09-12)
+
+### Features
+
+* [[`25f7140`](https://github.com/trekjs/engine/commit/25f7140)] - response: add redirect method and headerSent getter
+
+
 ## v0.3.3 (2016-09-08)
 
 ### Features
@@ -20,15 +27,15 @@
 
 ### Features
 
-* [[`75531ce1cb`](https://github.com/trekjs/engine/commit/75531ce1cb)] - use destructuring assignment for require module
+* [[`75531ce`](https://github.com/trekjs/engine/commit/75531ce)] - use destructuring assignment for require module
 
 ### Fixed
 
-* [[`d77b3b59e1`](https://github.com/trekjs/engine/commit/d77b3b59e1)] - subdomains should be [] if the host is an ip
+* [[`d77b3b5`](https://github.com/trekjs/engine/commit/d77b3b5)] - subdomains should be [] if the host is an ip
 
 
 ## v0.3.0 (2016-09-07)
 
 ### Features
 
-* [[`be5fe22568`](https://github.com/trekjs/engine/commit/be5fe22568)] - add rawReq and rawRes to context when app.unraw is false
+* [[`be5fe22`](https://github.com/trekjs/engine/commit/be5fe22)] - add rawReq and rawRes to context when app.unraw is false
