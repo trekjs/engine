@@ -57,6 +57,7 @@
     "request": "2.74.0",
     "request-promise": "4.1.1",
     "toa": "2.0.1",
+    "restify": "5.0.0-beta-1",
     "xo": "0.16.0"
   },
   "babel": {

@@ -12,6 +12,8 @@ elif [ "$2" == "toa" ]; then
   port="3"
 elif [ "$2" == "trek" ]; then
   port="4"
+elif [ "$2" == "restify" ]; then
+  port="5"
 fi
 
 uri='http://127.0.0.1:700'${port}'?foo[bar]=baz'
