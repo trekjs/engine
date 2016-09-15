@@ -1,14 +1,14 @@
 import test from 'ava'
 import request from 'request-promise'
 import Engine from '../../lib/engine'
-import { createError } from '../../lib/util'
+import HTTPError from '../../lib/http-error'
 import { listen } from '../helpers/context'
 
 test('handle catch should response and throws 500', async t => {
   const app = new Engine()
 
   app.use(() => {
-    throw createError()
+    throw new HTTPError()
   })
 
   app.on('error', err => {
@@ -27,7 +27,7 @@ test('handle catch should response and throws 404', async t => {
   const app = new Engine()
 
   app.use(() => {
-    throw createError(404, 'Not found')
+    throw new HTTPError(404, 'Not found')
   })
 
   app.on('error', err => {
