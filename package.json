@@ -1,6 +1,6 @@
 {
   "name": "trek-engine",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Micro, Elegant, Fast, Lightweight, Expressive middleware for Modern Node.js ",
   "keywords": [
     "trek",

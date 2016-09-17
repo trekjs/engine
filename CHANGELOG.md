@@ -1,6 +1,13 @@
 # Trek Engine Changelog
 
 
+## v0.4.2 (2016-09-17)
+
+### Features
+
+* [[`e0dc7ab`](https://github.com/trekjs/engine/commit/e0dc7ab)] - pkg: trek-middleware v1.1.0
+
+
 ## v0.4.1 (2016-09-16)
 
 ### Features
