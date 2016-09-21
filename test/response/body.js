@@ -200,7 +200,7 @@ test('when an object is given should default to json', async t => {
   app.use(({ res }) => {
     t.is(res.body, undefined)
     res.body = { foo: 'bar' }
-    t.is(res.body, { foo: 'bar' })
+    t.deepEqual(res.body, { foo: 'bar' })
   })
 
   app.on('error', err => {
