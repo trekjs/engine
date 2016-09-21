@@ -12,8 +12,10 @@ test('when Content-Type is set should not override', async t => {
   const app = t.context
 
   app.use(({ res }) => {
+    t.is(res.body, undefined)
     res.type = 'png'
     res.body = new Buffer('something')
+    t.deepEqual(res.body, new Buffer('something'))
   })
 
   app.on('error', err => {
@@ -30,8 +32,10 @@ test('when Content-Type is set when body is an object should not override as jso
   const app = t.context
 
   app.use(({ res }, next) => {
+    t.is(res.body, undefined)
     res.type = 'html'
     res.body = '<em>hey</em>'
+    t.deepEqual(res.body, '<em>hey</em>')
     return next()
   })
 
@@ -53,8 +57,10 @@ test('when Content-Type is set should override length', async t => {
   const app = t.context
 
   app.use(({ res }) => {
+    t.is(res.body, undefined)
     res.type = 'html'
     res.body = 'something'
+    t.deepEqual(res.body, 'something')
   })
 
   app.on('error', err => {
@@ -192,7 +198,9 @@ test('when an object is given should default to json', async t => {
   const app = t.context
 
   app.use(({ res }) => {
+    t.is(res.body, undefined)
     res.body = { foo: 'bar' }
+    t.is(res.body, { foo: 'bar' })
   })
 
   app.on('error', err => {
