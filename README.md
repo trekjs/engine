@@ -14,6 +14,7 @@
 
 </div>
 
+
 ## Features
 
 * **Micro**.
@@ -29,9 +30,10 @@
 
 ## Installation
 
+```console
+$ npm install trek-engine --save
 ```
-$ npm install trek-engine
-```
+
 
 ## Hello Trek Engine
 
@@ -76,6 +78,7 @@ See [express vs koa vs toa vs trek-engine](benchmarks/README.md).
 * toa
 
 * trek-engine
+
 
 ---
 
