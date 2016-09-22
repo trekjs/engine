@@ -7,4 +7,10 @@ app.use(({ res }) => {
   res.body = 'Hello world'
 })
 
+app.on('error', err => {
+  console.log('app:error: start')
+  console.log(err)
+  console.log('app:error: end')
+})
+
 app.run(3000)
