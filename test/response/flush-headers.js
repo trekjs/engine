@@ -93,11 +93,12 @@ test('should fail to set the headers after flushHeaders', async t => {
 test.cb('should flush headers first and delay to send data', t => {
   const app = new Trek()
 
-  app.use(({ res }) => {
+  app.use(({ req, res }) => {
     res.type = 'json'
     res.status = 200
-    res.header.Link = '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
-    const stream = res.body = new PassThrough()
+    req.header.link = '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
+    const stream = new PassThrough()
+    res.body = stream
     res.flushHeaders()
 
     setTimeout(() => {
