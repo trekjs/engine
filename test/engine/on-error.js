@@ -2,7 +2,7 @@ import fs from 'fs'
 import test from 'ava'
 import request from 'request-promise'
 import Engine from '../../lib/engine'
-import HTTPError from '../../lib/http-error'
+import HTTPError from '../../lib/error'
 import { listen } from '../helpers/context'
 
 test('handle catch should response and throws 500', async t => {
