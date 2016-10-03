@@ -1,6 +1,19 @@
 # Trek Engine Changelog
 
 
+## v0.4.3 (2016-10-04)
+
+### Features
+
+* [[`d5b2159`](https://github.com/trekjs/engine/commit/d5b2159)] - engine: add server getter & setter and handle
+* [[`f469078`](https://github.com/trekjs/engine/commit/f469078)] - error: mv http-error to error
+* [[`75c7d98`](https://github.com/trekjs/engine/commit/75c7d98)] - response: add writable getter
+* [[`dc1b8e5`](https://github.com/trekjs/engine/commit/dc1b8e5)] - response: add body setter and getter
+* [[`960ef62`](https://github.com/trekjs/engine/commit/960ef62)] - esponse: add flushHeaders() and length getter/setter
+* [[`92431c6`](https://github.com/trekjs/engine/commit/92431c6)] - util: add getLength(body)
+* [[`4626b97`](https://github.com/trekjs/engine/commit/4626b97)] - pkg: mime-types v2.1.12
+
+
 ## v0.4.2 (2016-09-17)
 
 ### Features
