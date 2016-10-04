@@ -1,6 +1,13 @@
 # Trek Engine Changelog
 
 
+## v0.4.4 (2016-10-04)
+
+### Features
+
+* [[`fc9b032`](https://github.com/trekjs/engine/commit/fc9b032)] - engine: add respond method
+
+
 ## v0.4.3 (2016-10-04)
 
 ### Features
