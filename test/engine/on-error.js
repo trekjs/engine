@@ -86,7 +86,7 @@ test('should handle all intermediate stream body errors', async t => {
 
 test('should expose message', async t => {
   const app = new Engine()
-  app.isDev = false
+  app.dev = false
 
   app.use(() => {
     throw new HTTPError(404, 'Nothing', undefined, true)
@@ -104,7 +104,7 @@ test('should expose message', async t => {
 
 test('should expose status', async t => {
   const app = new Engine()
-  app.isDev = false
+  app.dev = false
 
   app.use(() => {
     throw new HTTPError(404, 'Nothing', undefined)
