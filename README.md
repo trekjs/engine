@@ -9,7 +9,7 @@
 <a href="https://www.npmjs.com/package/trek-engine"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="MIT License"></a>
 <a href="https://codecov.io/gh/trekjs/engine"><img src="https://codecov.io/gh/trekjs/engine/branch/master/graph/badge.svg" alt="Codecov" /></a>
 <a href="https://travis-ci.org/trekjs/engine"><img src="https://img.shields.io/travis/trekjs/engine.svg?label=linux" alt="Linux Build"></a>
-<a href="https://ci.appveyor.com/project/fundon/engine"><img src="https://img.shields.io/appveyor/ci/dougwilson/express/master.svg?label=windows" alt="Window Build"/></a>
+<a href="https://ci.appveyor.com/project/fundon/engine"><img src="https://img.shields.io/appveyor/ci/fundon/engine/master.svg?label=windows" alt="Window Build"/></a>
 </p>
 
 </div>
