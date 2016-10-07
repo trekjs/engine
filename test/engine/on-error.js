@@ -2,7 +2,7 @@ import fs from 'fs'
 import test from 'ava'
 import request from 'request-promise'
 import Engine from '../../lib/engine'
-import HTTPError from '../../lib/http-error'
+import HTTPError from '../../lib/error'
 import { listen } from '../helpers/context'
 
 test('handle catch should response and throws 500', async t => {
@@ -82,4 +82,40 @@ test('should handle all intermediate stream body errors', async t => {
   } catch (err) {
     t.true(err.statusCode === 404)
   }
+})
+
+test('should expose message', async t => {
+  const app = new Engine()
+  app.dev = false
+
+  app.use(() => {
+    throw new HTTPError(404, 'Nothing', undefined, true)
+  })
+
+  app.on('error', err => {
+    t.true(err !== null)
+  })
+
+  const uri = await listen(app)
+  const res = await request({ uri, resolveWithFullResponse: true, simple: false })
+  t.is(res.statusCode, 404)
+  t.is(res.body, 'Nothing')
+})
+
+test('should expose status', async t => {
+  const app = new Engine()
+  app.dev = false
+
+  app.use(() => {
+    throw new HTTPError(404, 'Nothing', undefined)
+  })
+
+  app.on('error', err => {
+    t.true(err !== null)
+  })
+
+  const uri = await listen(app)
+  const res = await request({ uri, resolveWithFullResponse: true, simple: false })
+  t.is(res.statusCode, 404)
+  t.is(res.body, '404')
 })
