@@ -1,15 +1,15 @@
 import fs from 'fs'
 import test from 'ava'
 import request from 'request-promise'
+import HttpError from 'trek-http-error'
 import Engine from '../../lib/engine'
-import HTTPError from '../../lib/error'
 import { listen } from '../helpers/context'
 
 test('handle catch should response and throws 500', async t => {
   const app = new Engine()
 
   app.use(() => {
-    throw new HTTPError()
+    throw new HttpError()
   })
 
   app.on('error', err => {
@@ -28,7 +28,7 @@ test('handle catch should response and throws 404', async t => {
   const app = new Engine()
 
   app.use(() => {
-    throw new HTTPError(404, 'Not found')
+    throw new HttpError(404, 'Not found')
   })
 
   app.on('error', err => {
@@ -89,7 +89,7 @@ test('should expose message', async t => {
   app.dev = false
 
   app.use(() => {
-    throw new HTTPError(404, 'Nothing', undefined, true)
+    throw new HttpError(404, 'Nothing', undefined, true)
   })
 
   app.on('error', err => {
@@ -107,7 +107,7 @@ test('should expose status', async t => {
   app.dev = false
 
   app.use(() => {
-    throw new HTTPError(404, 'Nothing', undefined)
+    throw new HttpError(404, 'Nothing', undefined)
   })
 
   app.on('error', err => {
