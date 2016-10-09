@@ -2,6 +2,13 @@
   "name": "trek-engine",
   "version": "0.4.5",
   "description": "Micro, Elegant, Fast, Lightweight, Expressive middleware for Modern Node.js ",
+  "repository": "trekjs/engine",
+  "author": {
+    "name": "Fangdun Cai",
+    "email": "cfddream@gmail.com",
+    "url": "fundon.me"
+  },
+  "license": "MIT",
   "keywords": [
     "trek",
     "web",
@@ -19,9 +26,6 @@
     "test": "xo && nyc --reporter=lcov ava --no-cache -r babel-register -c 5",
     "test:watch": "xo && nyc --reporter=lcov ava -r babel-register --watch"
   },
-  "repository": "trekjs/engine",
-  "author": "Fangdun Cai <cfddream@gmail.com>",
-  "license": "MIT",
   "engines": {
     "node": ">= 6"
   },
