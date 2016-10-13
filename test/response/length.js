@@ -9,7 +9,7 @@ test('when Content-Length is defined should return a number', async t => {
 
   app.use(({ res }) => {
     res.set('Content-Length', '1024')
-    res.send(200)
+    res.status = 200
     t.is(res.length, 1024)
   })
 
@@ -80,14 +80,14 @@ test('when Content-Length is not defined and a .body is set to null should retur
 
   const uri = await listen(app)
   const res = await request({ uri, resolveWithFullResponse: true })
-  t.is(res.statusCode, 200)
+  t.is(res.statusCode, 204)
 })
 
-test('when Content-Length is not defined and .body is not should return undefined', async t => {
+test('when Content-Length is not defined and .body is not should return a number', async t => {
   const app = new Trek()
 
   app.use(({ res }) => {
-    res.send(200)
+    res.status = 200
     t.is(res.length, undefined)
   })
 

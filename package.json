@@ -84,7 +84,6 @@
     "semicolon": false,
     "space": true,
     "ignores": [
-      "benchmarks/*.js"
     ],
     "rules": {
       "curly": 0,

@@ -20,6 +20,8 @@ while (n--) {
 
 const body = new Buffer('Hello World')
 
-app.use((ctx, next) => next().then(() => ctx.body = body))
+app.use((ctx, next) => next().then(() => {
+  ctx.body = body
+}))
 
 app.listen(7002)

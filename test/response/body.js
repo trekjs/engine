@@ -28,7 +28,7 @@ test('when Content-Type is set should not override', async t => {
   t.is(res.body, 'something')
 })
 
-test('when Content-Type is set when body is an object should not override as json', async t => {
+test('when Content-Type is set when body is an object should override as json', async t => {
   const app = t.context
 
   app.use(({ res }, next) => {
@@ -48,9 +48,9 @@ test('when Content-Type is set when body is an object should not override as jso
   })
 
   const uri = await listen(app)
-  const res = await request({ uri, resolveWithFullResponse: true })
+  const res = await request({ uri, resolveWithFullResponse: true, json: true })
   t.is(res.headers['content-type'], 'text/html; charset=utf-8')
-  t.is(res.body, '<em>hey</em>')
+  t.deepEqual(res.body, { foo: 'bar' })
 })
 
 test('when Content-Type is set should override length', async t => {

@@ -18,7 +18,7 @@ while (n--) {
   app.use(function * () {})
 }
 
-app.use(function * () {
+app.use(function () {
   this.body = 'Hello World'
 })
 

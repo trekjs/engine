@@ -5,7 +5,6 @@ if (process.env.OVERRIDE_PROMISE) {
   global.Promise = require('bluebird')
 }
 
-const http = require('http')
 const express = require('express')
 
 const app = express()
@@ -21,6 +20,6 @@ while (n--) {
 
 const body = new Buffer('Hello World')
 
-app.use((req, res, next) => res.send(body))
+app.use((req, res) => res.send(body))
 
 app.listen(7001)

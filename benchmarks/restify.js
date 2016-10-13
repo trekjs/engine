@@ -20,6 +20,6 @@ while (n--) {
 
 const body = new Buffer('Hello World')
 
-app.pre((req, res, next) => res.sendRaw(200, body))
+app.pre((req, res) => res.sendRaw(200, body))
 
 app.listen(7005)
