@@ -1,6 +1,13 @@
 # Trek Engine Changelog
 
 
+## v0.5.0 (2016-10-14)
+* [[`9d97507`](https://github.com/trekjs/engine/commit/9d97507)] feature: lazy respond
+* [[`3bd1fcd`](https://github.com/trekjs/engine/commit/3bd1fcd)] ddeps: xo v0.17
+* [[`1508660`](https://github.com/trekjs/engine/commit/1508660)] deps: trek-http-error v0.0.5
+* [[`1b2c9d2`](https://github.com/trekjs/engine/commit/1b2c9d2)] license: tweak
+
+
 ## v0.4.5 (2016-10-09)
 
 * [[`131108a`](https://github.com/trekjs/engine/commit/131108a)] context: add cookies
