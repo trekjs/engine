@@ -23,8 +23,8 @@
   "scripts": {
     "bench": "cd benchmarks; make battle",
     "lint": "xo",
-    "test": "xo && nyc --reporter=lcov ava --no-cache -r babel-register -c 5",
-    "test:watch": "xo && nyc --reporter=lcov ava -r babel-register --watch"
+    "test": "xo && nyc ava",
+    "test:watch": "xo && nyc ava --watch"
   },
   "engines": {
     "node": ">=6"
@@ -66,6 +66,10 @@
     "toa": "2",
     "xo": "0.17"
   },
+  "ava": {
+    "concurrency": 5,
+    "require": "babel-register"
+  },
   "babel": {
     "plugins": [
       "transform-async-to-generator",
@@ -73,6 +77,12 @@
     ],
     "presets": [
       "es2016"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
     ]
   },
   "xo": {
@@ -83,8 +93,7 @@
     ],
     "semicolon": false,
     "space": true,
-    "ignores": [
-    ],
+    "ignores": [],
     "rules": {
       "curly": 0,
       "import/no-dynamic-require": 0,
