@@ -59,7 +59,7 @@
     "bluebird": "3",
     "express": "4",
     "koa": "2.0.0-alpha.7",
-    "nyc": "8.3",
+    "nyc": "8.4",
     "request": "2",
     "request-promise": "4",
     "restify": "5.0.0-beta-1",
