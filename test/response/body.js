@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 import test from 'ava'
 import request from 'request-promise'
 import Trek from '../../lib/engine'
@@ -150,7 +151,7 @@ test('when a stream is given should default to an octet stream', async t => {
   const app = t.context
 
   app.use(({ res }) => {
-    res.body = fs.createReadStream('../../LICENSE')
+    res.body = fs.createReadStream(path.join(__dirname, '../../LICENSE'))
   })
 
   app.on('error', err => {

@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 import test from 'ava'
 import request from 'request-promise'
 import Trek from '../../lib/engine'
@@ -61,7 +62,7 @@ test('when Content-Length is not defined and a .body is set to stream should ret
   const app = new Trek()
 
   app.use(({ res }) => {
-    res.body = fs.createReadStream('../../package.json')
+    res.body = fs.createReadStream(path.join(__dirname, '../../package.json'))
     t.is(res.length, undefined)
   })
 

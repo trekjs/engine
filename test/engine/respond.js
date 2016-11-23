@@ -1,4 +1,5 @@
 import fs from 'fs'
+import path from 'path'
 import test from 'ava'
 import request from 'request-promise'
 import Engine from '../../lib/engine'
@@ -38,7 +39,7 @@ test('when body is buffer', async t => {
 
 test('when body is stream', async t => {
   const app = new Engine()
-  const file = '../../package.json'
+  const file = path.join(__dirname, '../../package.json')
 
   app.use(({ res }) => {
     res.send(200, fs.createReadStream(file))
