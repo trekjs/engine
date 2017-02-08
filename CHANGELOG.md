@@ -1,6 +1,11 @@
 # Trek Engine Changelog
 
 
+## v0.5.4 (2017-02-09)
+* [[`75d7188`](https://github.com/trekjs/engine/commit/75d7188)] deps: fresh v0.4.0
+* [[`0e3bec8`](https://github.com/trekjs/engine/commit/0e3bec8)] context: add store map
+
+
 ## v0.5.0 (2016-10-14)
 * [[`9d97507`](https://github.com/trekjs/engine/commit/9d97507)] feature: lazy respond
 * [[`3bd1fcd`](https://github.com/trekjs/engine/commit/3bd1fcd)] ddeps: xo v0.17
