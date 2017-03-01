@@ -119,3 +119,25 @@ test('should expose status', async t => {
   t.is(res.statusCode, 404)
   t.is(res.body, '404')
 })
+
+test.cb('should ignore error after headerSent', t => {
+  const app = new Engine()
+
+  app.use(async ({ res }) => {
+    res.status = 200
+    res.set('X-FOO', 'bar')
+    res.flushHeaders()
+    await Promise.reject(new Error('mock error'))
+    res.body = 'response'
+  })
+
+  app.on('error', err => {
+    t.is(err.message, 'mock error')
+    t.is(err.headersSent, true)
+    t.end()
+  })
+
+  listen(app)
+    .then(uri => request({ uri, resolveWithFullResponse: true, simple: false }))
+    .then(res => t.is(res.statusCode, 200))
+})
