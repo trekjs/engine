@@ -3,7 +3,7 @@ import { request } from '../helpers/context'
 
 test('should return type void of parameters', t => {
   const req = request()
-  req.header['content-type'] = 'text/html; charset=utf-8'
+  req.headers['content-type'] = 'text/html; charset=utf-8'
   t.is(req.type, 'text/html')
 })
 

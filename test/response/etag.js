@@ -8,19 +8,19 @@ test.beforeEach(t => {
 test('should not modify an etag with quotes', t => {
   const res = t.context
   res.etag = '"asdf"'
-  t.is(res.header.etag, '"asdf"')
+  t.is(res.headers.etag, '"asdf"')
 })
 
 test('should not modify a weak etag', t => {
   const res = t.context
   res.etag = 'W/"asdf"'
-  t.is(res.header.etag, 'W/"asdf"')
+  t.is(res.headers.etag, 'W/"asdf"')
 })
 
 test('should add quotes around an etag if necessary', t => {
   const res = t.context
   res.etag = 'asdf'
-  t.is(res.header.etag, '"asdf"')
+  t.is(res.headers.etag, '"asdf"')
 })
 
 test('should return etag', t => {

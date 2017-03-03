@@ -57,7 +57,7 @@
     "babel-preset-es2016": "6",
     "babel-register": "6",
     "bluebird": "3",
-    "express": "4",
+    "express": "^4.15.0",
     "koa": "^2.0.1",
     "nyc": "10",
     "request": "2",

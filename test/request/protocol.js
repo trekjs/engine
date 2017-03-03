@@ -21,7 +21,7 @@ test('when X-Forwarded-Proto is set and proxy is trusted', t => {
   const req = t.context
   req.config.set('trust proxy', true)
   req.raw.socket = {}
-  req.header['x-forwarded-proto'] = 'https, http'
+  req.headers['x-forwarded-proto'] = 'https, http'
   t.is(req.protocol, 'https')
 })
 
@@ -29,13 +29,13 @@ test('when X-Forwarded-Proto is set and X-Forwarded-Proto is empty', t => {
   const req = t.context
   req.config.set('trust proxy', true)
   req.raw.socket = {}
-  req.header['x-forwarded-proto'] = ''
+  req.headers['x-forwarded-proto'] = ''
   t.is(req.protocol, 'http')
 })
 
 test('when X-Forwarded-Proto is set and proxy is not trusted', t => {
   const req = t.context
   req.raw.socket = {}
-  req.header['x-forwarded-proto'] = 'https, http'
+  req.headers['x-forwarded-proto'] = 'https, http'
   t.is(req.protocol, 'http')
 })

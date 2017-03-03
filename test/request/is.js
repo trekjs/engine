@@ -7,8 +7,8 @@ test.beforeEach(t => {
 
 test('should ignore params', t => {
   const req = t.context
-  req.header['content-type'] = 'text/html; charset=utf-8'
-  req.header['transfer-encoding'] = 'chunked'
+  req.headers['content-type'] = 'text/html; charset=utf-8'
+  req.headers['transfer-encoding'] = 'chunked'
 
   t.is(req.is('text/*'), 'text/html')
 })
@@ -23,7 +23,7 @@ test('when no body is given should return null', t => {
 
 test('when no content type is given should return false', t => {
   const req = t.context
-  req.header['transfer-encoding'] = 'chunked'
+  req.headers['transfer-encoding'] = 'chunked'
 
   t.false(req.is())
   t.false(req.is('image/*'))
@@ -32,16 +32,16 @@ test('when no content type is given should return false', t => {
 
 test('give no types should return the mime type', t => {
   const req = t.context
-  req.header['content-type'] = 'image/png'
-  req.header['transfer-encoding'] = 'chunked'
+  req.headers['content-type'] = 'image/png'
+  req.headers['transfer-encoding'] = 'chunked'
 
   t.is(req.is(), 'image/png')
 })
 
 test('given one type should return the type or false', t => {
   const req = t.context
-  req.header['content-type'] = 'image/png'
-  req.header['transfer-encoding'] = 'chunked'
+  req.headers['content-type'] = 'image/png'
+  req.headers['transfer-encoding'] = 'chunked'
 
   t.is(req.is('png'), 'png')
   t.is(req.is('.png'), '.png')
@@ -58,8 +58,8 @@ test('given one type should return the type or false', t => {
 
 test('given multiple types should return the first match or false', t => {
   const req = t.context
-  req.header['content-type'] = 'image/png'
-  req.header['transfer-encoding'] = 'chunked'
+  req.headers['content-type'] = 'image/png'
+  req.headers['transfer-encoding'] = 'chunked'
 
   t.is(req.is('png'), 'png')
   t.is(req.is('.png'), '.png')
@@ -81,8 +81,8 @@ test('given multiple types should return the first match or false', t => {
 
 test('when Content-Type: application/x-www-form-urlencoded should match "urlencoded"', t => {
   const req = t.context
-  req.header['content-type'] = 'application/x-www-form-urlencoded'
-  req.header['transfer-encoding'] = 'chunked'
+  req.headers['content-type'] = 'application/x-www-form-urlencoded'
+  req.headers['transfer-encoding'] = 'chunked'
 
   t.is(req.is('urlencoded'), 'urlencoded')
   t.is(req.is('json', 'urlencoded'), 'urlencoded')

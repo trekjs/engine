@@ -3,7 +3,7 @@ import { request } from '../helpers/context'
 
 test('should return subdomain array', t => {
   const req = request()
-  req.header.host = 'tobi.ferrets.example.com'
+  req.headers.host = 'tobi.ferrets.example.com'
   req.config.set('subdomain offset', 2)
   t.deepEqual(req.subdomains, ['ferrets', 'tobi'])
 
@@ -23,6 +23,6 @@ test('should work with no host present', t => {
 
 test('should check if the host is an ip address, even with a port', t => {
   const req = request()
-  req.header.host = '127.0.0.1:3000'
+  req.headers.host = '127.0.0.1:3000'
   t.deepEqual(req.subdomains, [])
 })

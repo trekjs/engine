@@ -9,5 +9,5 @@ test('should remove a field', t => {
   const res = t.context
   res.set('x-foo', 'bar')
   res.remove('x-foo')
-  t.deepEqual(res.header, {})
+  t.deepEqual(res.headers, {})
 })

@@ -96,7 +96,7 @@ test.cb('should flush headers first and delay to send data', t => {
   app.use(({ req, res }) => {
     res.type = 'json'
     res.status = 200
-    req.header.link = '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
+    req.headers.link = '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
     const stream = new PassThrough()
     res.body = stream
     res.flushHeaders()

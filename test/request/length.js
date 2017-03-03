@@ -7,7 +7,7 @@ test.beforeEach(t => {
 
 test('should return length in content-length', t => {
   const req = t.context
-  req.header['content-length'] = '10'
+  req.headers['content-length'] = '10'
   t.is(req.length, 10)
 })
 

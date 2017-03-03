@@ -12,7 +12,7 @@ test('should redirect to the given url', async t => {
 
   app.use(({ res }) => {
     res.redirect('http://bing.com')
-    t.is(res.header.location, 'http://bing.com')
+    t.is(res.headers.location, 'http://bing.com')
     t.is(res.status, 302)
   })
 
@@ -27,7 +27,7 @@ test('with "back" should redirect to Referrer', async t => {
     if (req.path === '/') {
       req.headers.referrer = '/login'
       res.redirect('back')
-      t.is(res.header.location, '/login')
+      t.is(res.headers.location, '/login')
     } else {
       res.end()
     }
@@ -44,7 +44,7 @@ test('with "back" should redirect to Referer', async t => {
     if (req.path === '/') {
       req.headers.referer = '/login'
       res.redirect('back')
-      t.is(res.header.location, '/login')
+      t.is(res.headers.location, '/login')
     } else {
       res.end()
     }
@@ -60,7 +60,7 @@ test('with "back" should default to alt', async t => {
   app.use(({ req, res }) => {
     if (req.path === '/') {
       res.redirect('back', '/index.html')
-      t.is(res.header.location, '/index.html')
+      t.is(res.headers.location, '/index.html')
     } else {
       res.end()
     }
@@ -78,7 +78,7 @@ test('with "back" should default redirect to /', async t => {
       res.end()
     } else {
       res.redirect('back')
-      t.is(res.header.location, '/')
+      t.is(res.headers.location, '/')
     }
   })
 
@@ -91,9 +91,9 @@ test('when html is accepted should respond with html', async t => {
 
   app.use(({ req, res }) => {
     if (req.path === '/') {
-      req.header.accept = 'text/html'
+      req.headers.accept = 'text/html'
       res.redirect('/redirect')
-      t.is(res.header['content-type'], 'text/html; charset=utf-8')
+      t.is(res.headers['content-type'], 'text/html; charset=utf-8')
     } else {
       res.end()
     }
@@ -108,9 +108,9 @@ test('when text is accepted should respond with text', async t => {
 
   app.use(({ req, res }) => {
     if (req.path === '/') {
-      req.header.accept = 'text/plain'
+      req.headers.accept = 'text/plain'
       res.redirect('/redirect')
-      t.is(res.header['content-type'], 'text/plain; charset=utf-8')
+      t.is(res.headers['content-type'], 'text/plain; charset=utf-8')
     } else {
       res.end()
     }
@@ -125,9 +125,9 @@ test('when html is accepted should escape the url', async t => {
 
   app.use(({ req, res }) => {
     if (req.path === '/') {
-      req.header.accept = 'text/html'
+      req.headers.accept = 'text/html'
       res.redirect('/redirect')
-      t.is(res.header['content-type'], 'text/html; charset=utf-8')
+      t.is(res.headers['content-type'], 'text/html; charset=utf-8')
     } else {
       res.end()
     }
@@ -143,7 +143,7 @@ test('when status is 301 should not change the status code', async t => {
   app.use(({ req, res }) => {
     if (req.path === '/') {
       res.status = 301
-      req.header.accept = 'text/plain'
+      req.headers.accept = 'text/plain'
       res.redirect('/redirect')
       t.is(res.status, 301)
       t.is(res.type, 'text/plain')
@@ -161,7 +161,7 @@ test('when status is 304 should change the status code', async t => {
 
   app.use(({ req, res }) => {
     if (req.path === '/') {
-      req.header.accept = 'text/plain'
+      req.headers.accept = 'text/plain'
       res.status = 304
       res.redirect('/redirect')
       t.is(res.status, 302)
@@ -180,7 +180,7 @@ test('when content-type was present should overwrite content-type', async t => {
 
   app.use(({ req, res }) => {
     if (req.path === '/') {
-      req.header.accept = 'text/plain'
+      req.headers.accept = 'text/plain'
       res.redirect('/redirect')
       t.is(res.status, 302)
       t.is(res.type, 'text/plain')

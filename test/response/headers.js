@@ -8,11 +8,11 @@ test.beforeEach(t => {
 test('should return the response header object', t => {
   const res = t.context
   res.set('X-Foo', 'bar')
-  t.deepEqual(res.header, { 'x-foo': 'bar' })
+  t.deepEqual(res.headers, { 'x-foo': 'bar' })
 })
 
 test('when res._headers not present should return empty object', t => {
   const res = t.context
   res.raw._headers = null
-  t.deepEqual(res.header, {})
+  t.deepEqual(res.headers, {})
 })

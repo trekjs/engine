@@ -9,14 +9,14 @@ test('should set the header as a UTCString', t => {
   const res = t.context
   const date = new Date()
   res.lastModified = date
-  t.is(res.header['last-modified'], date.toUTCString())
+  t.is(res.headers['last-modified'], date.toUTCString())
 })
 
 test('should work with date strings', t => {
   const res = t.context
   const date = new Date()
   res.lastModified = date.toString()
-  t.is(res.header['last-modified'], date.toUTCString())
+  t.is(res.headers['last-modified'], date.toUTCString())
 })
 
 test('should get the header as a Date', t => {

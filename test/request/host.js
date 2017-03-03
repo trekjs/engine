@@ -7,7 +7,7 @@ test.beforeEach(t => {
 
 test('should return host with port', t => {
   const req = t.context
-  req.header.host = 'foo.com:3000'
+  req.headers.host = 'foo.com:3000'
   t.is(req.host, 'foo.com:3000')
 })
 
@@ -18,15 +18,15 @@ test('with no host present', t => {
 
 test('when X-Forwarded-Host is present and proxy is not trusted', t => {
   const req = t.context
-  req.header['x-forwarded-host'] = 'bar.com'
-  req.header.host = 'foo.com'
+  req.headers['x-forwarded-host'] = 'bar.com'
+  req.headers.host = 'foo.com'
   t.is(req.host, 'foo.com')
 })
 
 test('when X-Forwarded-Host is present and proxy is trusted', t => {
   const req = t.context
   req.config.set('trust proxy', true)
-  req.header['x-forwarded-host'] = 'bar.com, baz.com'
-  req.header.host = 'foo.com'
+  req.headers['x-forwarded-host'] = 'bar.com, baz.com'
+  req.headers.host = 'foo.com'
   t.is(req.host, 'bar.com')
 })
