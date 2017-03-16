@@ -58,7 +58,7 @@
     "babel-register": "6",
     "bluebird": "3",
     "express": "4",
-    "koa": "2",
+    "koa": "^2.2.0",
     "nyc": "10",
     "request": "2",
     "request-promise": "4",

@@ -953,13 +953,6 @@ cookies@0.7.0, cookies@~0.7.0:
     depd "~1.1.0"
     keygrip "~1.0.1"
 
-cookies@~0.6.1:
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/cookies/-/cookies-0.6.2.tgz#6ac1b052895208e8fc4c4f5f86a9ed31b9cb5ccf"
-  dependencies:
-    depd "~1.1.0"
-    keygrip "~1.0.1"
-
 core-assert@^0.2.0:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/core-assert/-/core-assert-0.2.1.tgz#f85e2cf9bfed28f773cc8b3fa5c5b69bdc02fe3f"
@@ -1663,13 +1656,9 @@ forwarded@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.0.tgz#19ef9874c4ae1c297bcf078fde63a09b66a84363"
 
-fresh@0.5.0, fresh@~0.5.0:
+fresh@0.5.0, fresh@^0.5.0, fresh@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.0.tgz#f474ca5e6a9246d6fd8e0953cfa9b9c805afa78e"
-
-fresh@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.3.0.tgz#651f838e22424e7566de161d8358caa199f83d4f"
 
 fs.realpath@^1.0.0:
   version "1.0.0"
@@ -2456,21 +2445,21 @@ koa-is-json@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/koa-is-json/-/koa-is-json-1.0.0.tgz#273c07edcdcb8df6a2c1ab7d59ee76491451ec14"
 
-koa@2:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/koa/-/koa-2.1.0.tgz#59a4ee64984c463502aa9b4f85f1b108453eebbf"
+koa@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/koa/-/koa-2.2.0.tgz#b055933187849d540ad8b9f731baaa4be97c652d"
   dependencies:
     accepts "^1.2.2"
     content-disposition "~0.5.0"
     content-type "^1.0.0"
-    cookies "~0.6.1"
+    cookies "~0.7.0"
     debug "*"
     delegates "^1.0.0"
     depd "^1.1.0"
     destroy "^1.0.3"
     error-inject "~1.0.0"
     escape-html "~1.0.1"
-    fresh "^0.3.0"
+    fresh "^0.5.0"
     http-assert "^1.1.0"
     http-errors "^1.2.8"
     is-generator-function "^1.0.3"
