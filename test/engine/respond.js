@@ -25,7 +25,7 @@ test('when body is buffer', async t => {
   const app = new Engine()
 
   app.use(({ res }) => {
-    res.send(200, new Buffer('trek'))
+    res.send(200, Buffer.from('trek'))
   })
 
   app.on('error', err => {

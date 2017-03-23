@@ -120,7 +120,7 @@ test.cb('should flush headers first and delay to send data', t => {
       const onData = () => done(new Error('boom'))
       res.on('data', onData)
 
-      // shouldn't receive any data for a while
+      // Shouldn't receive any data for a while
       setTimeout(() => {
         res.removeListener('data', onData)
         done()

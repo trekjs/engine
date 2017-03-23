@@ -16,7 +16,7 @@ test('when omitting filename should not set filename param', t => {
   t.is(res.headers['content-disposition'], 'attachment')
 })
 
-test('when given a no-ascii filename should set the encodeURI filename param', async t => {
+test('when given a no-ascii filename should set the encodeURI filename param', t => {
   const res = response()
   res.attachment('path/to/include-no-ascii-char-中文名-ok.png')
   const str = 'attachment; filename="include-no-ascii-char-???-ok.png"; filename*=UTF-8\'\'include-no-ascii-char-%E4%B8%AD%E6%96%87%E5%90%8D-ok.png'

@@ -16,7 +16,7 @@ test('should return the full request url', t => {
   Reflect.setPrototypeOf(rawReq, Stream.Readable.prototype)
   const req = context(rawReq).req
   t.is(req.href, 'http://localhost/users/1?next=/dashboard')
-  // change it also work
+  // Change it also work
   req.url = '/foo/users/1?next=/dashboard'
   t.is(req.href, 'http://localhost/users/1?next=/dashboard')
 })

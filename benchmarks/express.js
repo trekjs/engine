@@ -9,7 +9,7 @@ const express = require('express')
 
 const app = express()
 
-// number of middleware
+// Number of middleware
 
 let n = parseInt(process.env.MW || '1', 10)
 console.log(`  ${n} middleware`)
@@ -18,7 +18,7 @@ while (n--) {
   app.use((req, res, next) => next())
 }
 
-const body = new Buffer('Hello World')
+const body = Buffer.from('Hello World')
 
 app.use((req, res) => res.send(body))
 

@@ -14,7 +14,7 @@ test('should return the origin of url', t => {
   Reflect.setPrototypeOf(rawReq, Stream.Readable.prototype)
   const req = request(rawReq)
   t.is(req.origin, 'http://localhost')
-  // change it also work
+  // Change it also work
   req.url = '/foo/users/1?next=/dashboard'
   t.is(req.origin, 'http://localhost')
 })

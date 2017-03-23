@@ -15,8 +15,8 @@ test('when Content-Type is set should not override', async t => {
   app.use(({ res }) => {
     t.is(res.body, undefined)
     res.type = 'png'
-    res.body = new Buffer('something')
-    t.deepEqual(res.body, new Buffer('something'))
+    res.body = Buffer.from('something')
+    t.deepEqual(res.body, Buffer.from('something'))
   })
 
   app.on('error', err => {
@@ -126,7 +126,7 @@ test('when an html string is given should set length', async t => {
 
 test('when an xml string is given should get html', async t => {
   /**
-  * ctx test is to show that we're not going
+  * Ctx test is to show that we're not going
   * to be stricter with the html sniff
   * or that we will sniff other string types.
   * You should `.type=` if ctx simple test fails.
@@ -167,7 +167,7 @@ test('when a buffer is given should default to an octet stream', async t => {
   const app = t.context
 
   app.use(({ res }) => {
-    res.body = new Buffer('hey')
+    res.body = Buffer.from('hey')
   })
 
   app.on('error', err => {
@@ -183,7 +183,7 @@ test('when a buffer is given should set length', async t => {
   const app = t.context
 
   app.use(({ res }) => {
-    res.body = new Buffer('Tobi')
+    res.body = Buffer.from('Tobi')
   })
 
   app.on('error', err => {

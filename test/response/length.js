@@ -36,7 +36,7 @@ test('when Content-Length is not defined and a .body is set to buffer should ret
   const app = new Trek()
 
   app.use(({ res }) => {
-    res.body = new Buffer('foo bar')
+    res.body = Buffer.from('foo bar')
     t.is(res.length, 7)
   })
 

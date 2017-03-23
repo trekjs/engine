@@ -9,7 +9,7 @@ const toa = require('toa')
 
 const app = toa()
 
-// number of middleware
+// Number of middleware
 
 let n = parseInt(process.env.MW || '1', 10)
 console.log(`  ${n} middleware`)

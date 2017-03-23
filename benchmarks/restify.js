@@ -9,7 +9,7 @@ const restify = require('restify')
 
 const app = restify.createServer()
 
-// number of middleware
+// Number of middleware
 
 let n = parseInt(process.env.MW || '1', 10)
 console.log(`  ${n} middleware`)
@@ -18,7 +18,7 @@ while (n--) {
   app.pre((req, res, next) => next())
 }
 
-const body = new Buffer('Hello World')
+const body = Buffer.from('Hello World')
 
 app.pre((req, res) => res.sendRaw(200, body))
 
