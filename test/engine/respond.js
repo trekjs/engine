@@ -71,3 +71,16 @@ test('when body is object', async t => {
   const res = await request(url, { json: true })
   t.deepEqual(res, body)
 })
+
+test('when HEAD is used', async t => {
+  const app = new Engine()
+
+  app.use(({ res }) => {
+    res.body = 'Hello'
+  })
+
+  const url = await listen(app)
+  const res = await request({ url, method: 'head', resolveWithFullResponse: true })
+  t.is(res.statusCode, 200)
+  t.is(res.body, '')
+})

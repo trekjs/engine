@@ -96,6 +96,7 @@
     "ignores": [],
     "rules": {
       "curly": 0,
+      "ava/prefer-async-await": 0,
       "import/no-dynamic-require": 0,
       "import/no-named-as-default": 0,
       "max-lines": 0,

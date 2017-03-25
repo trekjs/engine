@@ -17,7 +17,9 @@ test('should return a json representation', t => {
   res.status = 200
 
   t.deepEqual(res.inspect(), {
+    body: undefined,
     status: 200,
-    message: 'OK'
+    message: 'OK',
+    headers: {}
   })
 })

@@ -11,8 +11,8 @@ test('should set headersSent', async t => {
   app.use(({ res }) => {
     res.status = 200
     res.body = 'Body'
-    res.flushHeaders()
-    res.flushHeaders() // Should be idempotent.
+    res.flush()
+    res.flush() // Should be idempotent.
     t.true(res.headerSent)
     t.true(res.raw.headersSent)
   })
@@ -29,7 +29,7 @@ test('should allow a response afterwards', async t => {
   app.use(({ res }) => {
     res.status = 200
     res.raw.setHeader('foo', 'bar')
-    res.flushHeaders()
+    res.flush()
     res.body = 'Body'
   })
 
@@ -46,7 +46,7 @@ test('should send the correct status code', async t => {
   app.use(({ res }) => {
     res.status = 401
     res.raw.setHeader('foo', 'bar')
-    res.flushHeaders()
+    res.flush()
     res.body = 'Body'
   })
 
@@ -63,7 +63,7 @@ test('should fail to set the headers after flushHeaders', async t => {
   app.use(({ res }) => {
     res.status = 401
     res.raw.setHeader('content-type', 'text/plain')
-    res.flushHeaders()
+    res.flush()
     let body = ''
     try {
       res.set('X-Shouldnt-Work', 'Value')
@@ -99,7 +99,7 @@ test.cb('should flush headers first and delay to send data', t => {
     req.headers.link = '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
     const stream = new PassThrough()
     res.body = stream
-    res.flushHeaders()
+    res.flush()
 
     setTimeout(() => {
       stream.end(JSON.stringify({ message: 'hello!' }))

@@ -126,7 +126,7 @@ test.cb('should ignore error after headerSent', t => {
   app.use(async ({ res }) => {
     res.status = 200
     res.set('X-FOO', 'bar')
-    res.flushHeaders()
+    res.flush()
     await Promise.reject(new Error('mock error'))
     res.body = 'response'
   })
