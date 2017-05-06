@@ -1,29 +1,9 @@
-env:
-  - CXX=g++-4.8 TRAVIS=true
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
 sudo: false
 language: node_js
 node_js:
   - "7"
-
-cache:
-  directories:
-    - wrk/bin
-before_script:
-  - "[ ! -f wrk/bin/wrk ] && rm -rf wrk && git clone https://github.com/wg/wrk.git && make -C wrk && mkdir wrk/bin && mv wrk/wrk wrk/bin || true"
-  - export PATH=$PATH:$PWD/wrk/bin/
-  - npm i autocannon -g
 script:
-  - npm run bench
-  - benchmarker=autocannon npm run bench
   - npm test
-#  - OVERRIDE_PROMISE=1 npm run bench
-#  - OVERRIDE_PROMISE=1 benchmarker=autocannon npm run bench
 after_script:
   - npm install codecov
   - ./node_modules/.bin/codecov
