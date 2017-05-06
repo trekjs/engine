@@ -1,4 +1,3 @@
-import assert from 'assert'
 import { STATUS_CODES as statuses } from 'http'
 import test from 'ava'
 import { response } from '../helpers/context'
@@ -15,16 +14,16 @@ test('when a status code and valid should set the status', t => {
 
 test('when a status code and valid should not throw', t => {
   const res = t.context
-  assert.doesNotThrow(() => {
+  t.notThrows(() => {
     res.status = 403
   })
 })
 
 test('when a status string should throw', t => {
   const res = t.context
-  assert.throws(() => {
+  t.throws(() => {
     res.status = 'forbidden'
-  }, 'code must be a number')
+  }, 'status code must be a number')
 })
 
 test('when a status code and invalid should throw', t => {

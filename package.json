@@ -1,7 +1,7 @@
 {
   "name": "trek-engine",
   "version": "1.0.0",
-  "description": "Micro, Elegant, Fast, Lightweight, Expressive middleware for Modern Node.js ",
+  "description": "Micro, Elegant, Fast, Lightweight, Expressive middleware for Modern Node.js",
   "repository": "trekjs/engine",
   "author": {
     "name": "Fangdun Cai",
@@ -21,7 +21,6 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "bench": "cd benchmarks; make battle",
     "lint": "xo",
     "test": "xo && nyc ava",
     "test:watch": "xo && nyc ava --watch"
@@ -47,40 +46,22 @@
     "range-parser": "^1.2.0",
     "trek-http-error": "^0.0.5",
     "trek-middleware": "^1.1.0",
-    "type-is": "^1.6.14",
+    "type-is": "^1.6.15",
     "vary": "^1.1.1"
   },
   "devDependencies": {
-    "ava": "0.18",
-    "babel-plugin-transform-async-to-generator": "6",
-    "babel-plugin-transform-es2015-modules-commonjs": "6",
-    "babel-preset-es2016": "6",
-    "babel-register": "6",
-    "bluebird": "3",
-    "express": "4",
-    "koa": "2",
+    "ava": "0.19",
     "nyc": "10",
     "request": "2",
     "request-promise": "4.2",
-    "restify": "5.0.0-beta-1",
-    "toa": "2",
     "xo": "0.18"
   },
   "ava": {
-    "concurrency": 5,
-    "require": "babel-register"
-  },
-  "babel": {
-    "plugins": [
-      "transform-async-to-generator",
-      "transform-es2015-modules-commonjs"
-    ],
-    "presets": [
-      "es2016"
-    ]
+    "concurrency": 5
   },
   "nyc": {
     "reporter": [
+      "html",
       "lcov",
       "text"
     ]
@@ -95,8 +76,8 @@
     "space": true,
     "ignores": [],
     "rules": {
-      "curly": 0,
       "ava/prefer-async-await": 0,
+      "curly": 0,
       "import/no-dynamic-require": 0,
       "import/no-named-as-default": 0,
       "max-lines": 0,

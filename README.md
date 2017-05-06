@@ -38,7 +38,6 @@ $ npm install trek-engine --save
 ## Hello Trek Engine
 
 ```js
-const co = require('co')
 const Engine = require('trek-engine')
 const app = new Engine()
 
@@ -54,11 +53,6 @@ app.use(async (ctx, next) => {
 })
 
 // generator
-app.use(co.wrap(function * (ctx, next) {
-  yield next()
-}))
-
-// response
 app.use({ res } => {
   res.end('Hello Koa')
 })
@@ -69,7 +63,7 @@ app.run(3000)
 
 ## Benchmarks
 
-See [express vs koa vs toa vs trek-engine](benchmarks/README.md).
+See [express vs koa vs toa vs trek-engine](https://github.com/trekjs/benchmarks).
 
 * express
 
