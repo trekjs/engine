@@ -1,5 +1,7 @@
 # Trek Engine Changelog
 
+## v1.0.1 (2017-05-10)
+* [[`7d1532d`](https://github.com/trekjs/engine/commit/7d1532d)] engine: add bootUp()
 
 ## v0.5.4 (2017-02-09)
 * [[`75d7188`](https://github.com/trekjs/engine/commit/75d7188)] deps: fresh v0.4.0
