@@ -4,17 +4,25 @@ import Context from '../../lib/context'
 
 const createContext = (req, res, app = new Trek()) => {
   const socket = new Stream.Duplex()
-  req = Object.assign({
-    headers: {},
-    socket
-  }, Stream.Readable.prototype, req)
-  res = Object.assign({
-    getHeaders () {
-      return this._headers
+  req = Object.assign(
+    {
+      headers: {},
+      socket
     },
-    _headers: {},
-    socket
-  }, Stream.Writable.prototype, res)
+    Stream.Readable.prototype,
+    req
+  )
+  res = Object.assign(
+    {
+      getHeaders() {
+        return this._headers
+      },
+      _headers: {},
+      socket
+    },
+    Stream.Writable.prototype,
+    res
+  )
   req.socket.remoteAddress = req.socket.remoteAddress || '127.0.0.1'
   res.getHeader = k => res.getHeaders()[k.toLowerCase()]
   res.setHeader = (k, v) => {
@@ -34,7 +42,7 @@ export const response = (req, res, app) => createContext(req, res, app).res
 
 export const listen = app => {
   return new Promise((resolve, reject) => {
-    app.run(function (err) {
+    app.run(function(err) {
       if (err) {
         return reject(err)
       }

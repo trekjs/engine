@@ -16,9 +16,9 @@ test('should ignore params', t => {
 test('when no body is given should return null', t => {
   const req = t.context
 
-  t.true(null === req.is())
-  t.true(null === req.is('image/*'))
-  t.true(null === req.is('image/*', 'text/*'))
+  t.true(req.is() === null)
+  t.true(req.is('image/*') === null)
+  t.true(req.is('image/*', 'text/*') === null)
 })
 
 test('when no content type is given should return false', t => {

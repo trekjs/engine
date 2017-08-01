@@ -7,19 +7,29 @@ test.beforeEach(t => {
 
 test('with no arguments when Accept is populated', t => {
   const req = t.context
-  req.headers.accept = 'application/*;q=0.2, image/jpeg;q=0.8, text/html, text/plain'
-  t.deepEqual(req.accepts(), ['text/html', 'text/plain', 'image/jpeg', 'application/*'])
+  req.headers.accept =
+    'application/*;q=0.2, image/jpeg;q=0.8, text/html, text/plain'
+  t.deepEqual(req.accepts(), [
+    'text/html',
+    'text/plain',
+    'image/jpeg',
+    'application/*'
+  ])
 })
 
 test('with no valid types when Accept is populated', t => {
   const req = t.context
-  req.headers.accept = 'application/*;q=0.2, image/jpeg;q=0.8, text/html, text/plain'
+  req.headers.accept =
+    'application/*;q=0.2, image/jpeg;q=0.8, text/html, text/plain'
   t.false(req.accepts('image/png', 'image/tiff'))
 })
 
 test('when Accept is not populated', t => {
   const req = t.context
-  t.is(req.accepts('text/html', 'text/plain', 'image/jpeg', 'application/*'), 'text/html')
+  t.is(
+    req.accepts('text/html', 'text/plain', 'image/jpeg', 'application/*'),
+    'text/html'
+  )
 })
 
 test('when extensions are given', t => {

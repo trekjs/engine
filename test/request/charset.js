@@ -24,6 +24,7 @@ test('with a charset', t => {
 
 test('should return "" if content-type is invalid', t => {
   const req = t.context
-  req.headers['content-type'] = 'application/json; application/text; charset=utf-8'
+  req.headers['content-type'] =
+    'application/json; application/text; charset=utf-8'
   t.is(req.charset, '')
 })

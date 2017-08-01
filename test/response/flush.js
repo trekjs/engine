@@ -51,7 +51,11 @@ test('should send the correct status code', async t => {
   })
 
   const uri = await listen(app)
-  const res = await request({ uri, resolveWithFullResponse: true, simple: false })
+  const res = await request({
+    uri,
+    resolveWithFullResponse: true,
+    simple: false
+  })
   t.is(res.statusCode, 401)
   t.is(res.headers.foo, 'bar')
   t.is(res.body, 'Body')
@@ -84,7 +88,11 @@ test('should fail to set the headers after flushHeaders', async t => {
   })
 
   const uri = await listen(app)
-  const res = await request({ uri, resolveWithFullResponse: true, simple: false })
+  const res = await request({
+    uri,
+    resolveWithFullResponse: true,
+    simple: false
+  })
   t.is(res.statusCode, 401)
   t.is(res.headers['content-type'], 'text/plain')
   t.is(res.body, 'res.set fail res.status fail res.length fail')
@@ -96,7 +104,8 @@ test.cb('should flush headers first and delay to send data', t => {
   app.use(({ req, res }) => {
     res.type = 'json'
     res.status = 200
-    req.headers.link = '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
+    req.headers.link =
+      '</css/mycss.css>; as=style; rel=preload, <https://img.craftflair.com>; rel=preconnect; crossorigin'
     const stream = new PassThrough()
     res.body = stream
     res.flush()
@@ -108,25 +117,26 @@ test.cb('should flush headers first and delay to send data', t => {
 
   const done = t.end
 
-  app.run(function (err) {
+  app.run(function(err) {
     if (err) return done(err)
 
     const port = this.address().port
 
-    http.request({
-      port
-    })
-    .on('response', res => {
-      const onData = () => done(new Error('boom'))
-      res.on('data', onData)
+    http
+      .request({
+        port
+      })
+      .on('response', res => {
+        const onData = () => done(new Error('boom'))
+        res.on('data', onData)
 
-      // Shouldn't receive any data for a while
-      setTimeout(() => {
-        res.removeListener('data', onData)
-        done()
-      }, 1000)
-    })
-    .on('error', done)
-    .end()
+        // Shouldn't receive any data for a while
+        setTimeout(() => {
+          res.removeListener('data', onData)
+          done()
+        }, 1000)
+      })
+      .on('error', done)
+      .end()
   })
 })

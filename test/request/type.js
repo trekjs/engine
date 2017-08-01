@@ -9,5 +9,5 @@ test('should return type void of parameters', t => {
 
 test('should with no host present', t => {
   const req = request()
-  t.true('' === req.type)
+  t.true(req.type === '')
 })

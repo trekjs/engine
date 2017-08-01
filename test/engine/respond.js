@@ -80,7 +80,11 @@ test('when HEAD is used', async t => {
   })
 
   const url = await listen(app)
-  const res = await request({ url, method: 'head', resolveWithFullResponse: true })
+  const res = await request({
+    url,
+    method: 'head',
+    resolveWithFullResponse: true
+  })
   t.is(res.statusCode, 200)
   t.is(res.body, '')
 })

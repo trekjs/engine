@@ -1,7 +1,7 @@
 import test from 'ava'
 import Request from '../../lib/request'
 
-function req (ret) {
+function req(ret) {
   return {
     get: () => ret,
     __proto__: Request.prototype

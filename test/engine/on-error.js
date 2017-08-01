@@ -97,7 +97,11 @@ test('should expose message', async t => {
   })
 
   const uri = await listen(app)
-  const res = await request({ uri, resolveWithFullResponse: true, simple: false })
+  const res = await request({
+    uri,
+    resolveWithFullResponse: true,
+    simple: false
+  })
   t.is(res.statusCode, 404)
   t.is(res.body, 'Nothing')
 })
@@ -115,7 +119,11 @@ test('should expose status', async t => {
   })
 
   const uri = await listen(app)
-  const res = await request({ uri, resolveWithFullResponse: true, simple: false })
+  const res = await request({
+    uri,
+    resolveWithFullResponse: true,
+    simple: false
+  })
   t.is(res.statusCode, 404)
   t.is(res.body, '404')
 })

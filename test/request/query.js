@@ -6,7 +6,7 @@ test('when missing should return an empty object', t => {
   t.deepEqual(req.query, {})
 })
 
-test('when missing should return the same object each time test\'s accessed', t => {
+test(`when missing should return the same object each time test's accessed`, t => {
   const req = request({ url: '/' })
   req.query.a = '2'
   t.is(req.query.a, '2')

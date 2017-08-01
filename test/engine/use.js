@@ -8,6 +8,7 @@ test('should compose middleware', async t => {
   const app = new Engine()
   const calls = []
 
+  /* eslint ava/prefer-async-await: 0 */
   app.use((ctx, next) => {
     calls.push(1)
     return next().then(() => {
@@ -90,7 +91,6 @@ test('should catch thrown errors in non-async functions', async t => {
 
 test('should throw error for non function', t => {
   const app = new Engine()
-
   ;[null, undefined, 0, false, 'not a function'].forEach(v => {
     const err = t.throws(() => app.use(v))
 

@@ -37,5 +37,8 @@ test('should work with res.set(field, val) first', t => {
   res.set('Link', '<http://localhost/>')
   res.append('Link', '<http://localhost:80/>')
 
-  t.deepEqual(res.headers.link, ['<http://localhost/>', '<http://localhost:80/>'])
+  t.deepEqual(res.headers.link, [
+    '<http://localhost/>',
+    '<http://localhost:80/>'
+  ])
 })

@@ -27,7 +27,7 @@ test('with no req.ips present with req.socket.remoteAddress not present should r
     get: () => undefined, // So that the helper doesn't override it with a reasonable value
     set: () => {}
   })
-  t.is((request({ socket })).ip, '')
+  t.is(request({ socket }).ip, '')
 })
 
 test('req.ip should be cached', t => {

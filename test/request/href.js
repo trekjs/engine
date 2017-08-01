@@ -28,24 +28,27 @@ test.cb('should work with `GET http://example.com/foo`', t => {
     res.end(req.href)
   })
 
-  app.run(function () {
+  app.run(function() {
     const address = this.address()
-    http.get({
-      host: 'localhost',
-      path: 'http://example.com/foo',
-      port: address.port
-    }, res => {
-      t.is(res.statusCode, 200)
-      let buf = ''
-      res.setEncoding('utf8')
-      res.on('data', s => {
-        buf += s
-        return buf
-      })
-      res.on('end', () => {
-        t.is(buf, 'http://example.com/foo')
-        t.end()
-      })
-    })
+    http.get(
+      {
+        host: 'localhost',
+        path: 'http://example.com/foo',
+        port: address.port
+      },
+      res => {
+        t.is(res.statusCode, 200)
+        let buf = ''
+        res.setEncoding('utf8')
+        res.on('data', s => {
+          buf += s
+          return buf
+        })
+        res.on('end', () => {
+          t.is(buf, 'http://example.com/foo')
+          t.end()
+        })
+      }
+    )
   })
 })

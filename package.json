@@ -22,42 +22,57 @@
   "main": "lib/index.js",
   "scripts": {
     "lint": "xo",
-    "test": "xo && nyc ava",
-    "test:watch": "xo && nyc ava --watch"
+    "precommit": "lint-staged",
+    "test": "xo && nyc ava"
   },
   "engines": {
-    "node": ">=7.7"
+    "node": ">= 8.0.0"
   },
   "files": [
-    "CHANGELOG.md",
-    "LICENSE",
+    "lib",
     "README.md",
-    "lib"
+    "LICENSE",
+    "CHANGELOG.md"
   ],
   "dependencies": {
-    "accepts": "^1.3.3",
-    "content-disposition": "^0.5.2",
-    "content-type": "^1.0.2",
-    "cookies": "^0.7.0",
-    "fresh": "^0.5.0",
-    "mime-types": "^2.1.15",
+    "accepts": "1.3.3",
+    "content-disposition": "0.5.2",
+    "content-type": "1.0.2",
+    "cookies": "0.7.0",
+    "fresh": "0.5.0",
+    "mime-types": "2.1.16",
     "on-finished": "^2.3.0",
-    "parseurl": "^1.3.1",
-    "range-parser": "^1.2.0",
-    "trek-http-error": "^0.0.5",
-    "trek-middleware": "^1.1.0",
-    "type-is": "^1.6.15",
-    "vary": "^1.1.1"
+    "parseurl": "1.3.1",
+    "range-parser": "1.2.0",
+    "trek-http-error": "0.0.5",
+    "trek-middleware": "1.1.0",
+    "type-is": "1.6.15",
+    "vary": "1.1.1"
   },
   "devDependencies": {
-    "ava": "0.19",
-    "nyc": "10",
-    "request": "2",
-    "request-promise": "4.2",
-    "xo": "0.18"
+    "ava": "0.21.0",
+    "eslint-config-prettier": "2.3.0",
+    "husky": "0.14.3",
+    "lint-staged": "4.0.2",
+    "nyc": "11.1.0",
+    "prettier": "1.5.3",
+    "request": "2.81.0",
+    "request-promise": "4.2.1",
+    "xo": "0.18.2"
   },
   "ava": {
-    "concurrency": 5
+    "concurrency": 5,
+    "failFast": true,
+    "files": [
+      "test/**/*.js"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo",
+      "prettier --single-quote --no-semi --write",
+      "git add"
+    ]
   },
   "nyc": {
     "reporter": [
@@ -67,43 +82,6 @@
     ]
   },
   "xo": {
-    "esnext": true,
-    "envs": [
-      "node",
-      "es6"
-    ],
-    "semicolon": false,
-    "space": true,
-    "ignores": [],
-    "rules": {
-      "ava/prefer-async-await": 0,
-      "curly": 0,
-      "import/no-dynamic-require": 0,
-      "import/no-named-as-default": 0,
-      "max-lines": 0,
-      "no-warning-comments": [
-        "error",
-        {
-          "terms": [
-            "todo",
-            "fixme"
-          ],
-          "location": "anywhere"
-        }
-      ],
-      "object-curly-spacing": [
-        "error",
-        "always",
-        {
-          "arraysInObjects": true,
-          "objectsInObjects": true
-        }
-      ],
-      "space-before-function-paren": [
-        2,
-        "always"
-      ],
-      "yoda": 0
-    }
+    "extends": "prettier"
   }
 }
