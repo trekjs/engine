@@ -1,5 +1,9 @@
 # Trek Engine Changelog
 
+## v1.0.3 (2017-08-31)
+* trek-middleware v1.2.0
+* cookies v0.7.1
+
 ## v1.0.1 (2017-05-10)
 * [[`7d1532d`](https://github.com/trekjs/engine/commit/7d1532d)] engine: add bootUp()
 
