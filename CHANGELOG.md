@@ -1,5 +1,8 @@
 # Trek Engine Changelog
 
+## v1.0.4 (2017-09-01)
+* [[`ad702c1`](https://github.com/trekjs/engine/commit/ad702c1)]: engine: if this.server not found and should new Server
+
 ## v1.0.3 (2017-08-31)
 * trek-middleware v1.2.0
 * cookies v0.7.1
