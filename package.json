@@ -53,10 +53,10 @@
     "ava": "0.22.0",
     "eslint-config-prettier": "2.6.0",
     "husky": "0.14.3",
-    "lint-staged": "4.2.2",
+    "lint-staged": "4.2.3",
     "nyc": "11.2.1",
-    "prettier": "1.7.0",
-    "request": "2.82.0",
+    "prettier": "1.7.4",
+    "request": "2.83.0",
     "request-promise": "4.2.2",
     "xo": "0.18.2"
   },
